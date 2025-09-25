@@ -27,7 +27,7 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
             }}
           >     
           {productData.map((item, i) => (
-            <SwiperSlide className="swiper-slide">
+            <SwiperSlide key={i} className="swiper-slide">
               <a onMouseEnter={() => {setIsOpen(true); setSelectedProduct(i);}}>
                 <Image src={item.src} alt={item.name} width={imageWidth} height={imageHeight} />                
               </a>

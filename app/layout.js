@@ -3,6 +3,7 @@ import "./globals.css";
 import './css/default.css';
 import './front/css/scroll.css';
 import './front/css/reset.css';
+import './css/common.css';
 import { Alumni_Sans } from "next/font/google";
 export const metadata = {
   title: "Create Next App",

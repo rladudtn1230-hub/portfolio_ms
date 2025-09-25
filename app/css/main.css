@@ -44,15 +44,21 @@
     left: 50%;
     padding: 8px 10px;
     width: 275px;
+    height: 100px;
     transform: translate(-50%,-50%);
     background-color: #000;
     display: flex;   
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     cursor: pointer;
+    z-index: 15;    
+    transition: 0.45s cubic-bezier(0.34, 1.2, 0.64, 1.1);
 }
 .main_1 .main_1_visual .center_icon_wrap .symbol_wrap{
-    width: 85px;     
+    width: 85px;
+    transform: translateX(-70px);
+    transition: 0.45s cubic-bezier(0.34, 1.2, 0.64, 1.1);
+    
 }
 .main_1 .main_1_visual .center_icon_wrap .symbol_wrap svg{
     width: 100%;
@@ -62,9 +68,12 @@
     fill: white;
 }
 .main_1 .main_1_visual .center_icon_wrap .plus_btn {
-    position: relative;
+    position: absolute;
     width: 25px;
     height: 25px;
+    right: 15px;
+    top: 37.5px;
+
 }
 .main_1 .main_1_visual .center_icon_wrap .plus_btn .line{
     display: block;
@@ -77,6 +86,14 @@
 }
 .main_1 .main_1_visual .center_icon_wrap .plus_btn .line2{
     transform: rotate(90deg);
+}
+.main_1 .main_1_visual .center_icon_wrap.on{
+    width: 100%;
+    height: calc(100% - 150px);
+}
+.main_1 .main_1_visual .center_icon_wrap.on .symbol_wrap{
+    transform: translateX(0);
+    width: 70dvh;
 }
 .main_1 .down_txt{
     color: #D0D0D0;
@@ -102,7 +119,7 @@
     top: 0;
 }
 .main_2 .animation_roller .tit_wrap {
-    font-size: 475px;
+    font-size: 480px;
     line-height: 0.63;
     margin-bottom: 50px;
     font-weight: 800;
@@ -141,7 +158,7 @@
     color: #F6F6F6;
 }
 .main_3 .txt_wrap .tit h2{    
-    font-size: 475px;
+    font-size: 480px;
     font-weight: 800;
     font-family: var(--font-alumni-sans);
     line-height: 0.6;
@@ -185,6 +202,154 @@
     width: 33.06%;
 }
 
+.main_5 {
+   padding: 160px 0 145px; 
+}
+.main_5 .info_wrap .info h3 {
+    color: #F6F6F6;
+    font-family: "Alumni Sans";
+    font-size: 480px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 150%;
+    line-height: 0.6;
+}
+.main_5 .info_wrap .info{
+    margin-bottom: 95px;
+    display: flex;
+    align-items: center;
+}
+.main_5 .info_wrap .info .img_wrap {
+    flex-shrink: 0;
+}
+.main_5 .info_wrap .info .img_wrap img{
+    display: block;
+    width: 100%;
+}
+.main_5 .info_wrap .info.info2{
+    gap: 135px;    
+}
+.main_5 .info_wrap .info.info2 .img_wrap {
+    max-width : 1100px;
+}
+.main_5 .info_wrap .info.info3 {
+    flex-direction: row-reverse;
+    gap: 90px;
+    
+}
+.main_5 .info_wrap .info.info3 .img_wrap {
+    max-width: 850px;
+    padding-bottom: 200px;
+}
+
+.main_6 {
+    padding-bottom: 210px;
+}
+.main_6 .main_6_wrap{
+    display: flex;
+    align-items: flex-start;
+    max-width: 2200px;
+}
+.main_6 .symbol_wrap{
+    padding-left: 165px;
+    padding-right: 165px;
+}
+.main_6 .symbol_wrap svg path{
+    fill: #fff;
+}
+.main_6 .symbol_wrap svg path.path4,
+.main_6 .symbol_wrap svg path.path5,
+.main_6 .symbol_wrap svg path.path6,
+.main_6 .symbol_wrap svg path.path7,
+.main_6 .symbol_wrap svg path.path8{
+    fill: #ADADAD;
+}
+.main_6 .txt_list_wrap{    
+    flex: 1;    
+}
+.main_6 .txt_list_wrap .txt_list{
+    margin-bottom: 30px;
+}
+.main_6 .txt_list_wrap .txt_list .top_txt{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #F6F6F6;
+    margin-bottom: 18px;
+}
+.main_6 .txt_list_wrap .txt_list .top_txt li{    
+    font-family: "Alumni Sans";
+    font-size: 25px;    
+    font-weight: 800;
+    line-height: 150%; /* 37.5px */   
+    min-width: 295px; 
+}
+
+.main_6 .txt_list_wrap .bottom_txt li:not(:last-of-type) {
+    margin-bottom: 18px;
+}
+.main_6 .txt_list_wrap .bottom_txt li {
+    padding-left: 80px;
+    color: #F6F6F6;
+    font-family: "Alumni Sans";
+    font-size: 25px;    
+    font-weight: 500;
+    line-height: 150%; /* 37.5px */
+    border-bottom: 0.5px solid rgba(246, 246, 246, 0.8);        
+}
+
+.main_8 {
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+}
+.main_8 .w1600{
+    display: flex;
+    align-items: center;
+}
+.main_8 .img_wrap {
+    width: 50%;
+}
+.main_8 .txt_wrap {
+    width: 50%;
+    text-align: right;
+}
+.main_8 .txt_wrap h5 {
+    color: #FFF;    
+    font-size: 30px;    
+    font-weight: 500;
+    line-height: 150%; /* 45px */
+    letter-spacing: 2.1px;
+}
+.main_8 .txt_wrap h2 {
+    color: #F6F6F6;    
+    font-family: "Alumni Sans";
+    font-size: 250px;    
+    font-weight: 800;
+    line-height: 150%; /* 375px */    
+}
+.main_8 .txt_wrap ul{
+    display: flex;
+    flex-direction: column;    
+    align-items: flex-end;
+}
+.main_8 .txt_wrap ul li {
+    color: #FFF;    
+    font-size: 30px;    
+    font-weight: 300;
+    line-height: 150%; /* 45px */
+    letter-spacing: 4.2px;
+    width: max-content;    
+    margin-bottom: 8px;
+}
+.main_8 .txt_wrap ul li::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #FFF;
+}
+
+/* 메인 상품 슬라이드 단락 */
 .product_slide_section {
     background-color: #F6F6F6;
     padding: 170px 0 100px 0;

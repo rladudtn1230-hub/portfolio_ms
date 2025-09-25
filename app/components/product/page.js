@@ -20,7 +20,7 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
           <Swiper
             modules={[Autoplay]}
             loop={true}
-            slidesPerView={3}
+            slidesPerView={2}
             spaceBetween={0}
             autoplay={{
               delay: 2500,

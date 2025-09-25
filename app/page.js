@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import Product from "./components/product/page";
 import { productData } from "./data/products";
+import { useState } from "react";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
 
 
 function Main_1() {
+  const [iconOpen, setIconOpen] = useState(false);
   return (
     <section className="main_1">
         <div className="w1600">
@@ -43,7 +45,7 @@ function Main_1() {
                 <li>MONEY</li>
               </ul>
             </div>
-            <div className="center_icon_wrap">
+            <div className={`center_icon_wrap ${iconOpen ? 'on' : ''}`} onClick={() => setIconOpen(!iconOpen)}>
                 <div className="symbol_wrap">
                   <Symbol />
                 </div>
@@ -183,16 +185,20 @@ function Main_5(){
     <section className="main_5">
       <div className="w1600">
         <div className="info_wrap">
-          <div className="info">
+          <div className="info info1">
             <h3>NEGATIVE</h3>
           </div>
-          <div className="info">
+          <div className="info info2">
             <h3>HATE</h3>
-            <div className="img_wrap"></div>
+            <div className="img_wrap">
+              <Image src="/img/main/main_5_img1.png" alt="img" width={950} height={385} />
+            </div>
           </div>
-          <div className="info">
-            <div className="img_wrap"></div>
+          <div className="info info3">            
             <h3>DOUBT</h3>
+            <div className="img_wrap">
+              <Image src="/img/main/main_5_img2.png" alt="img" width={725} height={385} />
+            </div>
           </div>
         </div>
       </div>
@@ -203,7 +209,7 @@ function Main_5(){
 function Main_6(){
   return (
     <section className="main_6">
-      <div className="w1600">
+       <div className="main_6_wrap">
         <div className="symbol_wrap">
           <Symbol />          
         </div>
@@ -265,7 +271,7 @@ function Main_8(){
     <section className="main_8">
       <div className="w1600">
         <div className="img_wrap">
-
+          <Image src="/img/main/main_8_img1.png" alt="img" width={2714} height={2601} />
         </div>
         <div className="txt_wrap">
           <h5>Design contact is WACUS</h5>

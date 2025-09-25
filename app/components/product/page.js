@@ -36,7 +36,7 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
           </Swiper>
           <div className={`product_modal_wrap ${isOpen ? 'active' : ''}`}>
             <div className="img">
-              <Image src={productData[selectedProduct]?.src} alt={productData[selectedProduct]?.name} width={imageWidth} height={imageHeight} />
+              <Image src={productData[selectedProduct].src} alt={productData[selectedProduct].name} width={imageWidth} height={imageHeight} />
             </div>
             <div className="txt_wrap">
               <h3>&quot;{productData[selectedProduct].name}” - {productData[selectedProduct].category}</h3>

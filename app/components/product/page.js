@@ -8,12 +8,12 @@ import { useState } from 'react';
 
 export default function Product({ productData, imageWidth = 744, imageHeight = 891, popupWidth = 833, popupHeight = 1000 }) {
     const [selectedProduct, setSelectedProduct] = useState(0);
-    const [isOpen, setIsOpen] = useState(false);
-    const {
-      name,      
-      src,
-      category,    
-    } = productData;
+    const [isOpen, setIsOpen] = useState(false);    
+    // productData가 배열인지 확인
+    if (!productData || !Array.isArray(productData)) {
+        return <div>상품 데이터를 불러올 수 없습니다.</div>;
+    }
+
     return (
       <>
         <div className="slide_wrap" onMouseLeave={() => {setIsOpen(false);}}>
@@ -36,13 +36,18 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
           </Swiper>
           <div className={`product_modal_wrap ${isOpen ? 'active' : ''}`}>
             <div className="img">
-              <Image src={productData[selectedProduct].src} alt={productData[selectedProduct].name} width={imageWidth} height={imageHeight} />
+            <Image 
+                src={productData[selectedProduct]?.src || productData[0]?.src} 
+                alt={productData[selectedProduct]?.name || productData[0]?.name} 
+                width={imageWidth} 
+                height={imageHeight} 
+            />
             </div>
             <div className="txt_wrap">
               <h3>&quot;{productData[selectedProduct].name}” - {productData[selectedProduct].category}</h3>
               <div className="bottom_txt">
                 <span>Mom doesn&apos;t like these Tshirts</span>
-                <Link href={`./?${productData[selectedProduct].id}`}>View Point</Link>
+                <Link href={`./?${productData[selectedProduct]?.id || selectedProduct}`}>View Point</Link>
               </div>
             </div>
           </div>

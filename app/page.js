@@ -67,7 +67,7 @@ function Main_1() {
               </ul>
             </div>
           </div>
-          <p className="down_txt">Mom said, "I HATE GAINSAYER"</p>
+          <p className="down_txt">Mom said, &quot;I HATE GAINSAYER&quot;</p>
         </div>
       </section>
   );
@@ -164,7 +164,7 @@ function Main_4(){
       <div className="w1600">
         <h2 className="top_tit">
           <span className="date_txt">SS2025</span>
-          <span className="tit_txt">"DENIAL OF NEGATIVITY”</span>
+          <span className="tit_txt">&quot;DENIAL OF NEGATIVITY”</span>
         </h2>
         <Product
           productData={productData.tshirts} 
@@ -253,7 +253,7 @@ function Main_7(){
       <div className="w1600">
         <h2 className="top_tit">
           <span className="date_txt">SS2025</span>
-          <span className="tit_txt">"DENIAL OF NEGATIVITY”</span>
+          <span className="tit_txt">&quot;DENIAL OF NEGATIVITY”</span>
         </h2>
         <Product productData={productData.pants} />
       </div>

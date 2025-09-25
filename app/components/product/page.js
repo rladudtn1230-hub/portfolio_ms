@@ -39,9 +39,9 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
               <Image src={productData[selectedProduct]?.src} alt={productData[selectedProduct]?.name} width={imageWidth} height={imageHeight} />
             </div>
             <div className="txt_wrap">
-              <h3>"{productData[selectedProduct].name}” - {productData[selectedProduct].category}</h3>
+              <h3>&quot;{productData[selectedProduct].name}” - {productData[selectedProduct].category}</h3>
               <div className="bottom_txt">
-                <span>Mom doesn't like these Tshirts</span>
+                <span>Mom doesn&apos;t like these Tshirts</span>
                 <Link href={`./?${productData[selectedProduct].id}`}>View Point</Link>
               </div>
             </div>

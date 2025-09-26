@@ -5,13 +5,13 @@ import './css/main.css';
 import styles from "./page.module.css";
 import Link from "next/link";
 
-import Product from "./components/product/page";
+import Product from "./components/AnimatedText";
 import { productData } from "./data/products";
 import { useEffect, useRef, useState, useGSAP } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import AnimatedText from "./components/animatedText/page";
-import ProgressBar from "./components/progressBar/page";
+import AnimatedText from "./components/AnimatedText";
+import ProgressBar from "./components/ProgressBar";
 
 gsap.registerPlugin(ScrollTrigger);
 

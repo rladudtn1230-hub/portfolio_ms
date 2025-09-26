@@ -4,19 +4,20 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 export default function Product({ productData, imageWidth = 744, imageHeight = 891, popupWidth = 833, popupHeight = 1000 }) {
     const [selectedProduct, setSelectedProduct] = useState(0);
     const [isOpen, setIsOpen] = useState(false);    
+    const slideWrapRef = useRef(null);
     // productData가 배열인지 확인
     if (!productData || !Array.isArray(productData)) {
         return <div>상품 데이터를 불러올 수 없습니다.</div>;
-    }
+    }  
 
     return (
       <>
-        <div className="slide_wrap" onMouseLeave={() => {setIsOpen(false);}}>
+        <div className="slide_wrap" ref={slideWrapRef} onMouseLeave={() => {setIsOpen(false);}}>
           <Swiper
             modules={[Autoplay]}
             loop={true}
@@ -39,8 +40,8 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
             <Image 
                 src={productData[selectedProduct]?.src || productData[0]?.src} 
                 alt={productData[selectedProduct]?.name || productData[0]?.name} 
-                width={imageWidth} 
-                height={imageHeight} 
+                width={popupWidth} 
+                height={popupHeight} 
             />
             </div>
             <div className="txt_wrap">

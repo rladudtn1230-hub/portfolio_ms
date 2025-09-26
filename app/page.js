@@ -7,7 +7,13 @@ import Link from "next/link";
 
 import Product from "./components/product/page";
 import { productData } from "./data/products";
-import { useState } from "react";
+import { useEffect, useRef, useState, useGSAP } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import AnimatedText from "./components/animatedText/page";
+import ProgressBar from "./components/progressBar/page";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Home() {
   return (
@@ -32,17 +38,17 @@ function Main_1() {
         <div className="w1600">
           <div className="main_1_visual">
             <div className="lt_txt_wrap txt_wrap">
-              <ul>
-                <li>GAINSAYER</li>
-                <li>HATER</li>
-                <li>HAVE YOUR DOUBTS</li>
-                <li>TRIGGER</li>
+              <ul className="txt_list">
+                <AnimatedText text="GAINSAYER" />
+                <AnimatedText text="HATER" />
+                <AnimatedText text="HAVE YOUR DOUBTS" />
+                <AnimatedText text="TRIGGER" />
               </ul>
-              <ul>
-                <li>2025.08</li>
-                <li>MOM & DAD</li>
-                <li>(ABOUT SOMETHING)</li>
-                <li>MONEY</li>
+              <ul className="txt_list">                
+                <AnimatedText text="2025.08" />
+                <AnimatedText text="MOM & DAD" />
+                <AnimatedText text="(ABOUT SOMETHING)" />
+                <AnimatedText text="MONEY" />                
               </ul>
             </div>
             <div className={`center_icon_wrap ${iconOpen ? 'on' : ''}`} onClick={() => setIconOpen(!iconOpen)}>
@@ -54,18 +60,18 @@ function Main_1() {
                   <span className="line line2"></span>
                 </div>
             </div>
-            <div className="rt_txt_wrap txt_wrap">
-              <ul>
-                <li>GAINSAYER</li>
-                <li>HATER</li>
-                <li>HAVE YOUR DOUBTS</li>
-                <li>TRIGGER</li>
+            <div className="rt_txt_wrap txt_wrap">             
+              <ul className="txt_list">
+                <AnimatedText text="GAINSAYER" />
+                <AnimatedText text="HATER" />
+                <AnimatedText text="HAVE YOUR DOUBTS" />
+                <AnimatedText text="TRIGGER" />
               </ul>
-              <ul>
-                <li>2025.08</li>
-                <li>MOM & DAD</li>
-                <li>(ABOUT SOMETHING)</li>
-                <li>MONEY</li>
+              <ul className="txt_list">                
+                <AnimatedText text="2025.08" />
+                <AnimatedText text="MOM & DAD" />
+                <AnimatedText text="(ABOUT SOMETHING)" />
+                <AnimatedText text="MONEY" />                
               </ul>
             </div>
           </div>
@@ -76,23 +82,83 @@ function Main_1() {
 }
 
 function Main_2(){
+  
+  const animationRollerRef = useRef(null);  
+  const contentWrapRef = useRef(null);
+  const imgWrapRef = useRef(null);
+
+  // useEffect(() => {
+  //     const initViewportSticky = (element, container) => {        
+  //         const handleScroll = () => {
+  //             const containerTop = container.offsetTop;
+  //             const containerBottom = container.offsetTop + container.offsetHeight;
+  //             const rollerBottom = containerTop + element.offsetHeight;
+  //             const windowY = window.scrollY;
+  //             const windowHeight = window.innerHeight;                         
+  //             if (rollerBottom <= windowY + windowHeight && containerBottom > windowY + windowHeight) {
+  //                 element.classList.add("fixed");
+  //                 element.classList.remove("done");
+  //             }               
+  //             else if (containerBottom <= windowY + windowHeight) {                
+  //               element.classList.add("done");       
+  //               element.classList.remove("fixed");
+  //             }else {
+  //               element.classList.remove("fixed");
+  //               element.classList.remove("done");
+  //             }
+  //             console.log(rollerBottom, containerBottom, windowY + windowHeight)
+  //         };
+
+  //         window.addEventListener('scroll', handleScroll);
+  //         handleScroll();          
+  //         return () => {              
+  //             window.removeEventListener('scroll', handleScroll);
+  //         };
+  //     };
+
+  //     if (animationRollerRef.current && contentWrapRef.current) {
+  //         const cleanup = initViewportSticky(
+  //             animationRollerRef.current, 
+  //             contentWrapRef.current
+  //         );
+  //         return cleanup;
+  //     }
+  // }, []);
+  useEffect(() => {
+      if (imgWrapRef.current && contentWrapRef.current) {
+          gsap.to(imgWrapRef.current, {
+              x: "-50%",
+              scrollTrigger: {
+                  trigger: contentWrapRef.current,
+                  start: "top top",
+                  end: "bottom bottom",
+                  scrub: true,                             
+              }
+          });
+      }
+
+      return () => {
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+  }, []);
+  
   return (
     <section className="main_2">
       <div className="w1600">
-        <div className="content_wrap">
-          <div className="animation_roller">
+        <div className="content_wrap" ref={contentWrapRef}>
+          <div className="animation_roller" ref={animationRollerRef}>
             <h2 className="tit_wrap">
-              <span className="reverse">G</span>
+              <span className="reverse_y_text">G</span>
               <span>A</span>
               <span>I</span>
               <span>N</span>
-              <span className="reverse">S</span>
-              <span className="reverse">A</span>
-              <span className="reverse">Y</span>
-              <span className="reverse">E</span>
+              <span className="reverse_y_text">S</span>
+              <span className="reverse_y_text">A</span>
+              <span className="reverse_y_text">Y</span>
+              <span className="reverse_y_text">E</span>
               <span>R</span>
             </h2>
-            <div className="img_wrap">            
+            <div className="img_wrap" ref={imgWrapRef}>            
               <div className="img"></div>
             </div>
           </div>
@@ -102,7 +168,23 @@ function Main_2(){
   )
 }
 
-function Main_3(){
+function Main_3(){   
+    
+  const nagativityTitRef = useRef(null);
+  const [percentage, setPercentage] = useState(0);
+
+  const handlePercentageChange = (newPercentage) => {
+      setPercentage(newPercentage);
+  };
+
+  useEffect(() => {
+      const tit = nagativityTitRef.current?.querySelector("h2");
+      if (tit) {
+          const lightness = 96 - (96 - 7) * (percentage / 100);
+          tit.style.color = `hsl(0, 0%, ${lightness}%)`;
+      }
+  }, [percentage]);
+
   return (
     <section className="main_3">
       <div className="w1600">
@@ -111,7 +193,7 @@ function Main_3(){
             <h2>
               <span>D</span>
               <span>E</span>
-              <span className="reverse">N</span>
+              <span className="reverse_y_text">N</span>
               <span>I</span>
               <span>A</span>
               <span>L</span>
@@ -119,7 +201,7 @@ function Main_3(){
               <span>F</span>
             </h2>
           </div>
-          <div className="tit nagativity_tit">
+          <div className="tit nagativity_tit" ref={nagativityTitRef}>
             <h2>
               <span>N</span>
               <span>E</span>
@@ -132,11 +214,7 @@ function Main_3(){
               <span>T</span>
               <span>Y</span>
             </h2>
-            <div className="progress_wrap">
-              <div className="progress_bar">
-                <span className="progress_bar_button"></span>
-              </div>
-            </div>
+            <ProgressBar onPercentageChange={handlePercentageChange} />
           </div>
         </div>
         <figure className="img_wrap">
@@ -151,7 +229,7 @@ function Main_3(){
               <Image src="/img/main/main_3_img2.png" alt="img" width={529} height={208} />
             </div>
             <div className="img_box">
-              <Image src="/img/main/main_3_img3.png" alt="img" width={529} height={432} />
+              <Image src="/img/main/main_3_img3.png" alt="img" width={529} height={431} />
             </div>
           </div>
         </figure>
@@ -191,7 +269,7 @@ function Main_5(){
           <div className="info info2">
             <h3>HATE</h3>
             <div className="img_wrap">
-              <Image src="/img/main/main_5_img1.png" alt="img" width={950} height={385} />
+              <Image src="/img/main/main_5_img1.png" alt="img" width={951} height={385} />
             </div>
           </div>
           <div className="info info3">            
@@ -267,11 +345,35 @@ function Main_7(){
   )
 }
 function Main_8(){
+  const mainRef = useRef(null);
+  const imgWrapRef = useRef(null);  
+
+  useEffect(() => {
+    if (mainRef.current && imgWrapRef.current) {
+        gsap.to(imgWrapRef.current, {
+            width: "50%",
+            transform: "translate3d(0,0,0)",            
+            left: "0",
+            top: "0",
+            scrollTrigger: {
+                trigger: mainRef.current,
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true,                             
+            }
+        });
+    }
+
+    return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
-    <section className="main_8">
+    <section className="main_8" ref={mainRef}>
       <div className="w1600">
-        <div className="img_wrap">
-          <Image src="/img/main/main_8_img1.png" alt="img" width={2714} height={2601} />
+        <div className="img_wrap" ref={imgWrapRef}>
+          <div className="img"></div>          
         </div>
         <div className="txt_wrap">
           <h5>Design contact is WACUS</h5>

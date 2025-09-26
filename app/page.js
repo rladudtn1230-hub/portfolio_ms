@@ -13,7 +13,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedText from "./components/animatedText/page";
 import ProgressBar from "./components/progressBar/page";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   return (

@@ -140,9 +140,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 200vw;
+    width: 200dvw;
     height: 600px;
-    border-radius: 50px 0 0 50px;
+    border-radius: 50px;
 }
 
 .main_3 {

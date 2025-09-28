@@ -5,7 +5,7 @@ import './css/main.css';
 import styles from "./page.module.css";
 import Link from "next/link";
 
-import Product from "./components/AnimatedText";
+import Product from "./components/Product";
 import { productData } from "./data/products";
 import { useEffect, useRef, useState, useGSAP } from "react";
 import gsap from "gsap";
@@ -127,7 +127,7 @@ function Main_2(){
   useEffect(() => {
       if (imgWrapRef.current && contentWrapRef.current) {
           gsap.to(imgWrapRef.current, {
-              x: "-50%",
+              x: "-140%",
               scrollTrigger: {
                   trigger: contentWrapRef.current,
                   start: "top top",

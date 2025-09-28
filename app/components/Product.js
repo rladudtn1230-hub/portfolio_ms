@@ -16,7 +16,7 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
     }  
 
     return (
-      <>
+      <>        
         <div className="slide_wrap" ref={slideWrapRef} onMouseLeave={() => {setIsOpen(false);}}>
           <Swiper
             modules={[Autoplay]}

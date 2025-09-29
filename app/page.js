@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 import './css/main.css';
-import styles from "./page.module.css";
-import Link from "next/link";
 
 import Product from "./components/Product";
 import { productData } from "./data/products";
-import { useEffect, useRef, useState, useGSAP } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AnimatedText from "./components/AnimatedText";
@@ -76,7 +74,7 @@ function Main_1() {
             </div>
           </div>
           <p className="down_txt">Mom said, &quot;I HATE GAINSAYER&quot;</p>
-        </div>
+        </div>       
       </section>
   );
 }
@@ -143,6 +141,7 @@ function Main_2(){
   
   return (
     <section className="main_2">
+      <NoiseFilter />
       <div className="w1600">
         <div className="content_wrap" ref={contentWrapRef}>
           <div className="animation_roller" ref={animationRollerRef}>
@@ -412,4 +411,32 @@ function Symbol() {
       <path className="path10" d="M128.955 5.49588C129.117 6.70159 129.034 10.6423 127.607 10.5565C126.046 10.4639 125.101 6.58406 124.923 4.96354C124.781 3.67902 124.995 -0.109567 126.252 0.00243117C127.658 0.128256 128.728 3.81728 128.955 5.49449V5.49588Z" fill="#000"/>
   </svg>
   );
+}
+
+function NoiseFilter() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="403" height="287" viewBox="0 0 403 287" fill="none">
+      <g filter="url(#filter0_n_241_450)">
+        <rect width="403" height="287" fill=""/>
+      </g>
+      <defs>
+        <filter id="filter0_n_241_450" x="0" y="0" width="403" height="287" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+        <feTurbulence type="fractalNoise" baseFrequency="10 10" stitchTiles="stitch" numOctaves="3" result="noise" seed="8665"/>
+        <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise"/>
+        <feComponentTransfer in="alphaNoise" result="coloredNoise1">
+        <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+        </feComponentTransfer>
+        <feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped"/>
+        <feFlood floodColor="rgba(67, 67, 67, 0.1)" result="color1Flood"/>
+        <feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1"/>
+        <feMerge result="effect1_noise_241_450">
+        <feMergeNode in="shape"/>
+        <feMergeNode in="color1"/>
+        </feMerge>
+        </filter>
+      </defs>
+    </svg>
+  )
 }

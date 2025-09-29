@@ -20,12 +20,13 @@
     color: #D0D0D0;    
     font-size: 18px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 150%; /* 27px */
     letter-spacing: 2.52px;
     margin: 6px 0;
     display: flex;
     align-items: center;
+    font-family: 'Archivo Condensed';
 }
 .main_1 .main_1_visual .lt_txt_wrap ul{
     padding-right: 20px;
@@ -111,6 +112,12 @@
 }
 .main_2{
     padding: 80px 0;
+    position: relative;    
+}
+.main_2 svg{
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .main_2 .content_wrap {
     height: calc(200dvh + 1em);
@@ -118,7 +125,6 @@
     position: relative;
 }
 .main_2 .animation_roller {    
-    /* position: sticky;*/    
     position: absolute;
     top: 0;
     z-index: 10;
@@ -139,7 +145,10 @@
     margin-bottom: 50px;
     font-weight: 800;
     display: flex;
+    font-family: 'Alumni Sans';
+    position: relative;
 }
+
 .main_2 .animation_roller .tit_wrap span {
     display: block;
 }
@@ -147,15 +156,14 @@
     width: 100%;    
 }
 .main_2 .animation_roller .img_wrap .img {
-    background-image: url(/img/main/main_2_img1.png);
+    background-image: url(/img/main/main_2_img1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 200dvw;
     height: 600px;
-    border-radius: 50px;
+    border-radius: 50px;    
 }
-
 .main_3 {
     padding: 80px 0;
 }
@@ -176,7 +184,7 @@
 .main_3 .txt_wrap .tit h2{    
     font-size: 480px;
     font-weight: 800;
-    font-family: var(--font-alumni-sans);
+    font-family: 'Alumni Sans';
     line-height: 0.6;
 }
 .main_3 .txt_wrap .tit .progress_wrap {
@@ -264,6 +272,27 @@
     font-weight: 800;
     line-height: 150%;
     line-height: 0.6;
+    position: relative;
+    filter: contrast(105%) brightness(98%) saturate(80%);
+}
+.main_5 .info_wrap .info h3::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.02) 0px,
+      transparent 1px,
+      rgba(0,0,0,.01) 2px,
+      transparent 3px,
+      rgba(255,255,255,.01) 4px
+    );
+    background-size: 1px 1px;
+    pointer-events: none;
+    opacity: 0.6;
 }
 .main_5 .info_wrap .info{
     margin-bottom: 95px;
@@ -369,7 +398,7 @@
 }
 
 .main_8 .img_wrap .img{
-    background-image: url(/img/main/main_8_img1.png);
+    background-image: url(/img/main/main_8_img1.jpg);
     width: 100%;
     height: 100%;
     background-size: cover;

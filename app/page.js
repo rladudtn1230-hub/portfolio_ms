@@ -152,10 +152,10 @@ function Main_2(){
               <span>I</span>
               <span>N</span>
               <span className="reverse_y_text">S</span>
-              <span className="reverse_y_text">A</span>
-              <span className="reverse_y_text">Y</span>
-              <span className="reverse_y_text">E</span>
-              <span>R</span>
+              <span>A</span>
+              <span>Y</span>
+              <span>E</span>
+              <span className="reverse_y_text">R</span>
             </h2>
             <div className="img_wrap" ref={imgWrapRef}>            
               <div className="img"></div>
@@ -359,9 +359,15 @@ function Main_8(){
             scrollTrigger: {
                 trigger: mainRef.current,
                 start: "top top",
-                end: "bottom bottom",
-                scrub: true,                             
+                end: "bottom 120%",
+                scrub: true,                                       
             }
+        });
+
+        ScrollTrigger.create({
+            trigger: mainRef.current,
+            start: "bottom 120%",
+            toggleClass: { targets: mainRef.current, className: "finish" }
         });
     }
 
@@ -374,7 +380,9 @@ function Main_8(){
     <section className="main_8" ref={mainRef}>
       <div className="w1600">
         <div className="img_wrap" ref={imgWrapRef}>
-          <div className="img"></div>          
+          <div className="img">
+            <div className="symbol_img"></div>  
+          </div>          
         </div>
         <div className="txt_wrap">
           <h5>Design contact is WACUS</h5>

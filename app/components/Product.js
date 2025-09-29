@@ -10,10 +10,7 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
     const [selectedProduct, setSelectedProduct] = useState(0);
     const [isOpen, setIsOpen] = useState(false);    
     const slideWrapRef = useRef(null);
-    // productData가 배열인지 확인
-    if (!productData || !Array.isArray(productData)) {
-        return <div>상품 데이터를 불러올 수 없습니다.</div>;
-    }  
+    
     useEffect(() => {
       window.addEventListener("scroll", ()=>{        
         if(isOpen){
@@ -24,6 +21,10 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
         }
       })
     }, [isOpen])
+     // productData가 배열인지 확인
+    if (!productData || !Array.isArray(productData)) {
+        return <div>상품 데이터를 불러올 수 없습니다.</div>;
+    } 
     return (
       <>        
         <div className="slide_wrap" ref={slideWrapRef} onMouseLeave={() => {setIsOpen(false);}}>

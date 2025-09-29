@@ -10,7 +10,7 @@ export default function AnimatedText({text = ""}) {
             spans.forEach((span, index) => {
                 setTimeout(()=>{
                     span.style.opacity = 1;
-                }, index * 25)
+                }, index * 250)
             })
         }
     }, [text])

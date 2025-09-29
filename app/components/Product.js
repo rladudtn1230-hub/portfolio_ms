@@ -4,9 +4,9 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import Link from "next/link";
 import Image from "next/image";
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-export default function Product({ productData, imageWidth = 744, imageHeight = 891, popupWidth = 833, popupHeight = 1000 }) {
+export default function Product({ productData, imageWidth = 744, imageHeight = 891}) {
     const [selectedProduct, setSelectedProduct] = useState(0);
     const [isOpen, setIsOpen] = useState(false);    
     const slideWrapRef = useRef(null);
@@ -14,18 +14,28 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
     if (!productData || !Array.isArray(productData)) {
         return <div>상품 데이터를 불러올 수 없습니다.</div>;
     }  
-
+    useEffect(() => {
+      window.addEventListener("scroll", ()=>{        
+        if(isOpen){
+          console.log(slideWrapRef.current.offsetTop, window.scrollY)
+          if(slideWrapRef.current.offsetTop >= window.scrollY + window.innerHeight || slideWrapRef.current.offsetTop + slideWrapRef.current.offsetHeight <= window.scrollY){
+            setIsOpen(false);
+          }
+        }
+      })
+    }, [isOpen])
     return (
       <>        
         <div className="slide_wrap" ref={slideWrapRef} onMouseLeave={() => {setIsOpen(false);}}>
           <Swiper
             modules={[Autoplay]}
-            loop={true}
+            loop={true}                    
             slidesPerView={2}
+            loopAdditionalSlides={1}
             spaceBetween={0}
             autoplay={{
               delay: 2500,
-            }}
+            }}                        
           >     
           {productData.map((item, i) => (
             <SwiperSlide key={i} className="swiper-slide">
@@ -40,8 +50,8 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
             <Image 
                 src={productData[selectedProduct]?.src || productData[0]?.src} 
                 alt={productData[selectedProduct]?.name || productData[0]?.name} 
-                width={popupWidth} 
-                height={popupHeight} 
+                width={imageWidth} 
+                height={imageHeight} 
             />
             </div>
             <div className="txt_wrap">

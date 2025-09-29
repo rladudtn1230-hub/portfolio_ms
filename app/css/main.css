@@ -118,9 +118,20 @@
     position: relative;
 }
 .main_2 .animation_roller {    
-    position: sticky;
-    top: 0;        
+    /* position: sticky;*/    
+    position: absolute;
+    top: 0;
     z-index: 10;
+}
+.main_2 .animation_roller.fixed {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+}
+.main_2 .animation_roller.done {
+    position: absolute;
+    top: auto;
+    bottom: 0;
 }
 
 .main_2 .animation_roller .tit_wrap {    
@@ -409,6 +420,7 @@
 .product_slide_section {
     background-color: #F6F6F6;
     padding: 170px 0 100px 0;
+    overflow: hidden;
 }
 .product_slide_section .top_tit {
     display: flex;
@@ -428,6 +440,9 @@
     letter-spacing: 4.2px;
     background-color: #111;
     padding: 0 20px;
+}
+.product_slide_section .swiper {
+    overflow: initial;
 }
 .product_slide_section .more_btn_wrap {
     display: flex;

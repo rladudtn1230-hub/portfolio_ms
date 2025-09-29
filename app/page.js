@@ -87,52 +87,51 @@ function Main_2(){
   const contentWrapRef = useRef(null);
   const imgWrapRef = useRef(null);
 
-  // useEffect(() => {
-  //     const initViewportSticky = (element, container) => {        
-  //         const handleScroll = () => {
-  //             const containerTop = container.offsetTop;
-  //             const containerBottom = container.offsetTop + container.offsetHeight;
-  //             const rollerBottom = containerTop + element.offsetHeight;
-  //             const windowY = window.scrollY;
-  //             const windowHeight = window.innerHeight;                         
-  //             if (rollerBottom <= windowY + windowHeight && containerBottom > windowY + windowHeight) {
-  //                 element.classList.add("fixed");
-  //                 element.classList.remove("done");
-  //             }               
-  //             else if (containerBottom <= windowY + windowHeight) {                
-  //               element.classList.add("done");       
-  //               element.classList.remove("fixed");
-  //             }else {
-  //               element.classList.remove("fixed");
-  //               element.classList.remove("done");
-  //             }
-  //             console.log(rollerBottom, containerBottom, windowY + windowHeight)
-  //         };
+  useEffect(() => {
+      const initViewportSticky = (element, container) => {        
+          const handleScroll = () => {
+              const containerTop = container.offsetTop;
+              const containerBottom = container.offsetTop + container.offsetHeight;
+              const rollerBottom = containerTop + element.offsetHeight;
+              const windowY = window.scrollY;
+              const windowHeight = window.innerHeight;                         
+              if (rollerBottom <= windowY + windowHeight && containerBottom > windowY + windowHeight) {
+                  element.classList.add("fixed");
+                  element.classList.remove("done");
+              }               
+              else if (containerBottom <= windowY + windowHeight) {                
+                element.classList.add("done");       
+                element.classList.remove("fixed");
+              }else {
+                element.classList.remove("fixed");
+                element.classList.remove("done");
+              }              
+          };
 
-  //         window.addEventListener('scroll', handleScroll);
-  //         handleScroll();          
-  //         return () => {              
-  //             window.removeEventListener('scroll', handleScroll);
-  //         };
-  //     };
+          window.addEventListener('scroll', handleScroll);
+          handleScroll();          
+          return () => {              
+              window.removeEventListener('scroll', handleScroll);
+          };
+      };
 
-  //     if (animationRollerRef.current && contentWrapRef.current) {
-  //         const cleanup = initViewportSticky(
-  //             animationRollerRef.current, 
-  //             contentWrapRef.current
-  //         );
-  //         return cleanup;
-  //     }
-  // }, []);
+      if (animationRollerRef.current && contentWrapRef.current) {
+          const cleanup = initViewportSticky(
+              animationRollerRef.current, 
+              contentWrapRef.current
+          );
+          return cleanup;
+      }
+  }, []);
   useEffect(() => {
       if (imgWrapRef.current && contentWrapRef.current) {
           gsap.to(imgWrapRef.current, {
-              x: "-140%",
+              x: "-58%",
               scrollTrigger: {
                   trigger: contentWrapRef.current,
                   start: "top top",
                   end: "bottom bottom",
-                  scrub: true,                             
+                  scrub: true,
               }
           });
       }
@@ -249,9 +248,7 @@ function Main_4(){
         <Product
           productData={productData.tshirts} 
           imageWidth = {744}
-          imageHeight = {891}
-          popupWidth = {833}
-          popupHeight = {1000}
+          imageHeight = {891}          
         />
       </div>
     </section>
@@ -339,7 +336,11 @@ function Main_7(){
           <span className="date_txt">SS2025</span>
           <span className="tit_txt">&quot;DENIAL OF NEGATIVITY”</span>
         </h2>
-        <Product productData={productData.pants} />
+        <Product
+          productData={productData.pants} 
+          imageWidth = {744}
+          imageHeight = {891}          
+        />        
       </div>
     </section>
   )

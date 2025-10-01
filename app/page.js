@@ -91,65 +91,70 @@ function Main_2(){
   useEffect(() => {
     const checkScreenSize = () => {
       return window.innerWidth >= 768;
-    };
-    if (checkScreenSize()) {
-      const initViewportSticky = (element, container) => {        
-          const handleScroll = () => {
-              const containerTop = container.offsetTop;
-              const containerBottom = container.offsetTop + container.offsetHeight;
-              const rollerBottom = containerTop + element.offsetHeight;
-              const windowY = window.scrollY;
-              const windowHeight = window.innerHeight;                         
-              if (rollerBottom <= windowY + windowHeight && containerBottom > windowY + windowHeight) {
-                  element.classList.add("fixed");
-                  element.classList.remove("done");
-              }               
-              else if (containerBottom <= windowY + windowHeight) {                
-                element.classList.add("done");       
-                element.classList.remove("fixed");
-              }else {
-                element.classList.remove("fixed");
-                element.classList.remove("done");
-              }              
-          };
-
-          window.addEventListener('scroll', handleScroll);
-          handleScroll();          
-          return () => {              
-              window.removeEventListener('scroll', handleScroll);
-          };
-      };
-
-      if (animationRollerRef.current && contentWrapRef.current) {
-          const cleanup = initViewportSticky(
-              animationRollerRef.current, 
-              contentWrapRef.current
-          );
-          return cleanup;
-      }
+    };    
+    if (!checkScreenSize()) {
+      return; // 768px 미만이면 실행하지 않음
     }
+    const initViewportSticky = (element, container) => {        
+        const handleScroll = () => {
+            const containerTop = container.offsetTop;
+            const containerBottom = container.offsetTop + container.offsetHeight;
+            const rollerBottom = containerTop + element.offsetHeight;
+            const windowY = window.scrollY;
+            const windowHeight = window.innerHeight;                         
+            if (rollerBottom <= windowY + windowHeight && containerBottom > windowY + windowHeight) {
+                element.classList.add("fixed");
+                element.classList.remove("done");
+            }               
+            else if (containerBottom <= windowY + windowHeight) {                
+              element.classList.add("done");       
+              element.classList.remove("fixed");
+            }else {
+              element.classList.remove("fixed");
+              element.classList.remove("done");
+            }              
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();          
+        return () => {              
+            window.removeEventListener('scroll', handleScroll);
+        };
+    };
+
+    if (animationRollerRef.current && contentWrapRef.current) {
+        const cleanup = initViewportSticky(
+            animationRollerRef.current, 
+            contentWrapRef.current
+        );
+        return cleanup;
+    }
+    
   }, []);
   useEffect(() => {
     const checkScreenSize = () => {
       return window.innerWidth >= 768;
     };
-    if (checkScreenSize()) {
-      if (imgWrapRef.current && contentWrapRef.current) {
-          gsap.to(imgWrapRef.current, {
-              x: "-100%",
-              scrollTrigger: {
-                  trigger: contentWrapRef.current,
-                  start: "top top",
-                  end: "bottom bottom",
-                  scrub: true,
-              }
-          });
-      }
-
-      return () => {
-          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      };
+    if (!checkScreenSize()) {
+      return; // 768px 미만이면 실행하지 않음
     }
+      
+    if (imgWrapRef.current && contentWrapRef.current) {
+        gsap.to(imgWrapRef.current, {
+            x: "-100%",
+            scrollTrigger: {
+                trigger: contentWrapRef.current,
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true,
+            }
+        });
+    }
+
+    return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+    
   }, []);
   
   return (

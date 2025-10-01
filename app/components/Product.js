@@ -12,7 +12,9 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
     const [modalIsMove, setModalIsMove] = useState(true);
     const slideWrapRef = useRef(null);
     const modalRef = useRef(null);
-    const modalIsMoveRef = useRef(true); // useRef 추가
+    const modalIsMoveRef = useRef(true);
+    const [touchStartY, setTouchStartY] = useState(0);
+    const [touchStartX, setTouchStartX] = useState(0);    
     
     useEffect(() => {
       window.addEventListener("scroll", ()=>{        
@@ -26,6 +28,12 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
 
     // 모달 위치 제어 useEffect
     useEffect(() => {
+      const checkScreenSize = () => {
+        return window.innerWidth >= 768;
+      };
+      if (!checkScreenSize()) {
+        return; // 768px 미만이면 실행하지 않음
+      }
       const handleMouseMove = (e) => {        
         if (modalIsMove && modalRef.current) {
           setTimeout(() => {
@@ -89,6 +97,26 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
                     }
                   }, 100);
                 }}
+                onTouchStart={(e) => {
+                  if (e.touches && e.touches[0]) {
+                    setTouchStartY(e.touches[0].clientY);
+                    setTouchStartX(e.touches[0].clientX);
+                  }
+                }}
+                onTouchEnd={(e) => {
+                  if (e.changedTouches && e.changedTouches[0]) {
+                    const touchEndY = e.changedTouches[0].clientY;
+                    const touchEndX = e.changedTouches[0].clientX;
+                    const deltaY = Math.abs(touchEndY - touchStartY);
+                    const deltaX = Math.abs(touchEndX - touchStartX);
+                    
+                    // 움직임이 적을 때만 모달 열기
+                    if (deltaY < 10 && deltaX < 10) {
+                      setIsOpen(true);
+                      setSelectedProduct(i);
+                    }
+                  }
+                }}
               ></div>
             </SwiperSlide>           
           ))}            
@@ -110,7 +138,10 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
                 src={productData[selectedProduct]?.src || productData[0]?.src} 
                 alt={productData[selectedProduct]?.name || productData[0]?.name} 
                 width={imageWidth} 
-                height={imageHeight} 
+                height={imageHeight}
+                onTouchEnd={() => {
+                  setIsOpen(false);
+                }}
             />
             </div>
             <div className="txt_wrap">

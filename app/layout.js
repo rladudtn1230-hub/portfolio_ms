@@ -4,6 +4,7 @@ import './css/default.css';
 import './front/css/scroll.css';
 import './front/css/reset.css';
 import './css/common.css';
+import Symbol from "./components/Symbol";
 import LenisScroll from "./components/LenisScroll";
 export const metadata = {
   title: "Create Next App",
@@ -29,9 +30,23 @@ function Header(){
     <header className="header">
       <div className="w1600">
         <div className="logo">
-          <Image src="/img/common/logo.png" alt="logo" width={195} height={34} />
+          <Image className="pc_logo" src="/img/common/logo.png" alt="logo" width={195} height={34} />
+          <div className="m_logo">
+            <Symbol />
+          </div>
         </div>
-        <h5 className="center_tit">DENIAL OF NEGATIVITY</h5>
+        <h5 className="center_tit pc_tit">DENIAL OF NEGATIVITY</h5>
+        <h5 className="center_tit m_tit">
+          <span className="reverse_y_text">G</span>
+          <span>A</span>
+          <span>I</span>
+          <span>N</span>
+          <span className="reverse_y_text">S</span>
+          <span>A</span>
+          <span>Y</span>
+          <span>E</span>
+          <span className="reverse_y_text">R</span>
+        </h5>
         <div className="menu_btn">
           <span className="line line1"></span>
           <span className="line line2"></span>

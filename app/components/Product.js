@@ -61,14 +61,17 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
             loop={true}                    
             slidesPerView={1}
             loopAdditionalSlides={1}
-            spaceBetween={116}
+            spaceBetween={15}
+            centeredSlides={false}
             autoplay={{
               delay: 2500,
             }}
             breakpoints = {{
               768: {
                 slidesPerView: 2,
+                spaceBetween: 30,                
               }
+              
             }}                        
           >     
           {productData.map((item, i) => (

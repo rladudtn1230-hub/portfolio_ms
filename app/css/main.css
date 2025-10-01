@@ -196,7 +196,7 @@
     .main_1 .down_txt{
         bottom: 50px;
     }
-    html {
+    body {
         overflow-x: hidden;
     }
 }
@@ -260,7 +260,11 @@
 @media screen and (max-width: 1700px) {
     .main_2 .content_wrap{font-size: 27dvw;}
 }
-
+@media screen and (max-width: 768px) {
+    .main_2 .animation_roller .img_wrap .img{
+        height: 160px;
+    }
+}
 .main_3 {
     padding: 80px 0;
 }
@@ -283,6 +287,14 @@
     font-weight: 800;
     font-family: 'Alumni Sans';
     line-height: 0.6;
+    display: flex;
+    justify-content: center;
+}
+.main_3 .txt_wrap .tit h2 span{
+    display: block;
+}
+.main_3 .txt_wrap .tit h2 span.space_right{
+    margin-right: 0.15em;
 }
 .main_3 .txt_wrap .tit .progress_wrap {
     position: absolute;
@@ -362,7 +374,26 @@
     .main_3 .txt_wrap .tit h2{font-size: 27dvw;}
     .main_3 .txt_wrap .tit .progress_wrap {width: calc(100% + 25px);}
 }
-
+@media screen and (max-width: 768px) {
+    .main_3 .txt_wrap{
+        margin-bottom: 15px;
+    }
+    .main_3 .txt_wrap .tit{
+        margin-bottom: 20px;
+        -webkit-text-stroke: 0.5px #F6F6F6; 
+        text-stroke: 0.5px #F6F6F6;
+    }
+    .main_3 .img_wrap .img_box{
+        border-radius: 4px;
+    }
+    .main_3 .txt_wrap .tit .progress_wrap{
+        height: 9px;
+    }
+    .main_3 .txt_wrap .tit .progress_wrap .progress_bar .progress_button .progress_shape{
+        width: 15px;
+        height: 15px;
+    }
+}
 
 
 .main_5 {
@@ -426,9 +457,31 @@
 }
 
 @media screen and (max-width: 1700px) {
-    .main_5 .info_wrap .info h3{font-size: 27dvw;}
+    .main_5 .info_wrap .info h3{font-size: 30dvw;}
 }
-
+@media screen and (max-width: 768px) {
+    .main_5{
+        padding: 55px 0 55px 0;
+    }
+    .main_5 .info_wrap .info.info3{
+        padding-bottom: 0;
+    }
+    .main_5 .info_wrap .info{
+        margin-bottom: 26.5px;
+    }
+    .main_5 .info_wrap .info.info2 {
+        gap: 13px;
+    }
+    .main_5 .info_wrap .info.info3{
+        gap: 13px;
+    }
+    .main_5 .info_wrap .info.info2 .img_wrap {
+        width: 50dvw;
+    }
+    .main_5 .info_wrap .info.info3 .img_wrap{
+        width: 38dvw;
+    }
+}
 .main_6 {
     padding-bottom: 210px;
 }
@@ -488,7 +541,30 @@
     background-color: #F6F6F6;
     color: #111;
 }
-
+@media screen and (max-width: 768px) {
+    .main_6{
+        padding-bottom: 55px;
+    }
+    .main_6 .main_6_wrap{
+        padding: 0 22.5px;
+    }
+    .main_6 .symbol_wrap {
+        display: none;
+    }
+    .main_6 .txt_list_wrap .txt_list .top_txt li{
+        font-size: 14px;
+        min-width: 0;
+        width: 39%;
+    }
+    .main_6 .txt_list_wrap .txt_list .top_txt li:last-of-type{
+        width: 22%;
+    }
+    .main_6 .txt_list_wrap .bottom_txt li{
+        margin-left: 20px;
+        font-size: 12px;
+    }
+    
+}
 .main_8 {
     height: 200dvh;
     display: flex;    
@@ -575,7 +651,37 @@
     .main_8 .txt_wrap h5{font-size: 20px;}
     .main_8 .txt_wrap ul li{font-size: 20px;}
 }
-
+@media screen and (max-width: 768px) {
+    .main_8 {
+        height: 100dvh;
+    }
+    .main_8 .txt_wrap{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 48px;
+        padding-bottom: 55px;
+    }
+    .main_8 .txt_wrap .tit{
+        text-align: left;
+    }
+    .main_8 .txt_wrap h5 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .main_8 .txt_wrap h2 {
+        font-size: 77px;
+        line-height: 0.7;
+    }
+    .main_8 .txt_wrap ul li {
+        font-size: 14px;
+    }
+}
 /* 메인 상품 슬라이드 단락 */
 .product_slide_section {
     background-color: #F6F6F6;
@@ -704,4 +810,25 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+}
+@media screen and (max-width: 768px) {
+    .product_slide_section{
+        padding: 50px 0 55px 0 ;
+    }
+    .product_slide_section .top_tit{
+        font-size: 14px;
+    }
+    .product_slide_section .top_tit .date_txt{
+        margin-right: 5px;
+    }
+    .product_slide_section .top_tit .tit_txt{
+        padding: 0px 0.4em;
+    }
+    .product_slide_section .slide_wrap{
+        width: calc(100% - 50px);
+        margin: 0 auto;
+    }
+    .product_slide_section .more_btn_wrap a{
+        font-size: 14px;
+    }
 }

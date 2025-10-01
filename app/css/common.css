@@ -33,6 +33,49 @@
     background-color: #525252;
     border-radius: 2px;
 }
+.header .m_logo {
+    display: none;
+}
+.header .m_tit {
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .header .m_logo {
+        display: block;
+    }
+    .header .m_tit {
+        display: flex;
+    }
+    .header .pc_logo {
+        display: none;
+    }
+    .header .pc_tit {
+        display: none;
+    }
+    .header .m_logo svg {
+        width: 20px;
+        height: auto;
+    }
+    .header .m_logo svg path {
+        fill: #fff;
+    }
+    .header .m_logo svg path.path4,
+    .header .m_logo svg path.path5,
+    .header .m_logo svg path.path6,
+    .header .m_logo svg path.path7,
+    .header .m_logo svg path.path8{
+        fill: #ADADAD;
+    }
+  
+    .header .center_tit span {
+        display: block;
+        font-family: 'Alumni Sans';
+        font-size: 32px;
+        font-weight: 800;
+        line-height: 0.7;
+    }
+
+}
 .footer{    
     padding: 17px 0;
     background-color: #09090C;
@@ -64,4 +107,23 @@
     font-weight: 500;
     line-height: 150%; /* 36px */
     letter-spacing: 3.36px;
+}
+@media screen and (max-width: 768px) {
+    .footer .w1600{
+        padding: 0 15px;
+        margin: 0;
+        width: 100%;
+    }
+    .footer .txt_wrap h5 {
+        font-size: 3vw;
+        margin-right: 15px;
+        letter-spacing: 0.24em;
+    }    
+    .footer .txt_wrap p{
+        font-size: 1.7vw;
+        letter-spacing: 0.25em;
+    }
+    .footer .txt_wrap p br{
+        display: none;
+    }
 }

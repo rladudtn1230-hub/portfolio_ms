@@ -111,12 +111,12 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
             />
             </div>
             <div className="txt_wrap">
-              <h3>&quot;{productData[selectedProduct].name}" - {productData[selectedProduct].category}</h3>
+              <h3>&quot;{productData[selectedProduct].name}”; - {productData[selectedProduct].category}</h3>
               <div className="bottom_txt">
                 <span>Mom doesn&apos;t like these Tshirts</span>
                 <Link href={`./?${productData[selectedProduct]?.id || selectedProduct}`}>View Point</Link>
               </div>
-            </div>
+            </div>            
           </div>
         </div>
         <div className="more_btn_wrap">

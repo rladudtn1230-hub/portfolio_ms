@@ -398,6 +398,7 @@
 
 .main_5 {
    padding: 160px 0 145px; 
+   overflow: hidden;
 }
 .main_5 .info_wrap .info h3 {
     color: #F6F6F6;

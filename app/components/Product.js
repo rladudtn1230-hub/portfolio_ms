@@ -31,11 +31,16 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
           <Swiper
             modules={[Autoplay]}
             loop={true}                    
-            slidesPerView={2}
+            slidesPerView={1}
             loopAdditionalSlides={1}
             spaceBetween={0}
             autoplay={{
               delay: 2500,
+            }}
+            breakpoints = {{
+              768: {
+                slidesPerView: 2,
+              }
             }}                        
           >     
           {productData.map((item, i) => (

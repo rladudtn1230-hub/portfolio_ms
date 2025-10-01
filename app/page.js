@@ -35,21 +35,7 @@ function Main_1() {
     <section className="main_1">
         <div className="w1600">
           <div className="main_1_visual">
-            <div className="lt_txt_wrap txt_wrap">
-              <ul className="txt_list">
-                <AnimatedText text="GAINSAYER" />
-                <AnimatedText text="HATER" />
-                <AnimatedText text="HAVE YOUR DOUBTS" />
-                <AnimatedText text="TRIGGER" />
-              </ul>
-              <ul className="txt_list">                
-                <AnimatedText text="2025.08" />
-                <AnimatedText text="MOM & DAD" />
-                <AnimatedText text="(ABOUT SOMETHING)" />
-                <AnimatedText text="MONEY" />                
-              </ul>
-            </div>
-            <div className={`center_icon_wrap ${iconOpen ? 'on' : ''}`} onClick={() => setIconOpen(!iconOpen)}>
+            <div className={`center_icon_wrap ${iconOpen ? 'on' : ''}`} onClick={() => setIconOpen(!iconOpen)} onTouchEnd={() => setIconOpen(!iconOpen)}>
                 <div className="symbol_wrap">
                   <Symbol />
                 </div>
@@ -58,19 +44,35 @@ function Main_1() {
                   <span className="line line2"></span>
                 </div>
             </div>
-            <div className="rt_txt_wrap txt_wrap">             
-              <ul className="txt_list">
-                <AnimatedText text="GAINSAYER" />
-                <AnimatedText text="HATER" />
-                <AnimatedText text="HAVE YOUR DOUBTS" />
-                <AnimatedText text="TRIGGER" />
-              </ul>
-              <ul className="txt_list">                
-                <AnimatedText text="2025.08" />
-                <AnimatedText text="MOM & DAD" />
-                <AnimatedText text="(ABOUT SOMETHING)" />
-                <AnimatedText text="MONEY" />                
-              </ul>
+            <div className="txt_container">
+              <div className="lt_txt_wrap txt_wrap">
+                <ul className="txt_list">
+                  <AnimatedText text="GAINSAYER" />
+                  <AnimatedText text="HATER" />
+                  <AnimatedText text="HAVE YOUR DOUBTS" />
+                  <AnimatedText text="TRIGGER" />
+                </ul>
+                <ul className="txt_list">                
+                  <AnimatedText text="2025.08" />
+                  <AnimatedText text="MOM & DAD" />
+                  <AnimatedText text="(ABOUT SOMETHING)" />
+                  <AnimatedText text="MONEY" />                
+                </ul>
+              </div>            
+              <div className="rt_txt_wrap txt_wrap">             
+                <ul className="txt_list">
+                  <AnimatedText text="GAINSAYER" />
+                  <AnimatedText text="HATER" />
+                  <AnimatedText text="HAVE YOUR DOUBTS" />
+                  <AnimatedText text="TRIGGER" />
+                </ul>
+                <ul className="txt_list">                
+                  <AnimatedText text="2025.08" />
+                  <AnimatedText text="MOM & DAD" />
+                  <AnimatedText text="(ABOUT SOMETHING)" />
+                  <AnimatedText text="MONEY" />                
+                </ul>
+              </div>
             </div>
           </div>
           <p className="down_txt">Mom said, &quot;I HATE GAINSAYER&quot;</p>

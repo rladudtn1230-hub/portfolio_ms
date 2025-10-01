@@ -89,6 +89,10 @@ function Main_2(){
   const imgWrapRef = useRef(null);
 
   useEffect(() => {
+    const checkScreenSize = () => {
+      return window.innerWidth >= 768;
+    };
+    if (checkScreenSize()) {
       const initViewportSticky = (element, container) => {        
           const handleScroll = () => {
               const containerTop = container.offsetTop;
@@ -123,8 +127,13 @@ function Main_2(){
           );
           return cleanup;
       }
+    }
   }, []);
   useEffect(() => {
+    const checkScreenSize = () => {
+      return window.innerWidth >= 768;
+    };
+    if (checkScreenSize()) {
       if (imgWrapRef.current && contentWrapRef.current) {
           gsap.to(imgWrapRef.current, {
               x: "-100%",
@@ -140,6 +149,7 @@ function Main_2(){
       return () => {
           ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       };
+    }
   }, []);
   
   return (

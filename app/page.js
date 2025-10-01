@@ -126,7 +126,7 @@ function Main_2(){
   useEffect(() => {
       if (imgWrapRef.current && contentWrapRef.current) {
           gsap.to(imgWrapRef.current, {
-              x: "-58%",
+              x: "-100%",
               scrollTrigger: {
                   trigger: contentWrapRef.current,
                   start: "top top",

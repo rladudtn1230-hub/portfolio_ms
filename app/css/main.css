@@ -196,10 +196,14 @@
     .main_1 .down_txt{
         bottom: 50px;
     }
+    html {
+        overflow-x: hidden;
+    }
 }
 .main_2{
     padding: 80px 0;
     overflow: hidden;
+    padding-bottom: 120px;
 }
 .main_2 svg{
     position: absolute;
@@ -241,13 +245,14 @@
 }
 .main_2 .animation_roller .img_wrap {
     width: 100%;    
+    padding-bottom: 50px;
 }
 .main_2 .animation_roller .img_wrap .img {
     background-image: url(/img/main/main_2_img1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 200dvw;
+    width: 200%;
     height: 600px;
     border-radius: 50px;    
 }
@@ -470,12 +475,18 @@
     margin-bottom: 18px;
 }
 .main_6 .txt_list_wrap .bottom_txt li {
-    padding-left: 80px;    
+    margin-left: 80px;
+    padding-left: 10px;
     font-family: "Alumni Sans";
     font-size: 25px;    
     font-weight: 500;
     line-height: 150%; /* 37.5px */
-    border-bottom: 0.5px solid rgba(246, 246, 246, 0.8);        
+    border-bottom: 0.5px solid rgba(246, 246, 246, 0.8);
+    transition: 0.2s;
+}
+.main_6 .txt_list_wrap .bottom_txt li:hover {
+    background-color: #F6F6F6;
+    color: #111;
 }
 
 .main_8 {
@@ -619,7 +630,7 @@
     overflow: hidden;
     isolation: isolate;
     background-color: #fff;
-    width: 890px;    
+    width: 590px;    
 
     opacity: 0;
     visibility: hidden;
@@ -647,7 +658,7 @@
 .product_slide_section .product_modal_wrap .txt_wrap h3{    
     padding: 17px 20px;    
     color: #111;    
-    font-size: 30.39px;    
+    font-size: 24px;
     font-weight: 500;
     line-height: 150%; /* 45.585px */
     letter-spacing: 4.255px;
@@ -663,12 +674,12 @@
     display: block;
     padding: 17px 40px;        
     border-right: 1px solid rgba(17, 17, 17, 0.60);
-    font-size: 20px;            
+    font-size: 17px;            
     letter-spacing: 2.8px;
 }
 .product_slide_section .product_modal_wrap .bottom_txt a{    
     font-family: "Archivo Condensed";
-    font-size: 29.709px;
+    font-size: 16px;
     font-style: normal;    
     letter-spacing: 4.159px;
     display: block;

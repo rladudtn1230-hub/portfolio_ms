@@ -226,6 +226,24 @@ function Main_2(){
     };
     
   }, [isDesktop]);
+
+  useEffect(() => {
+    if (isDesktop) {
+      return; // 768px 이상일때 실행하지 않는다다
+    }
+    const img_box = imgWrapRef.current?.querySelector(".img");
+    if(imgWrapRef.current && contentWrapRef.current) {
+      gsap.to(img_box, {
+        backgroundPositionX: "70%",
+        scrollTrigger: {
+          trigger: contentWrapRef.current,
+          start: "bottom bottom",
+          end: "bottom top",
+          scrub: true,
+        }
+      });
+    }
+  }, [isDesktop]);
   
   return (
     <section className="main_2">      

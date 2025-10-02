@@ -304,6 +304,7 @@
         width: calc(100% + 100px);
         margin-left: -50px;
         border-radius: 0px;
+        background-position-x: 20%;
     }
     .main_2 .animation_roller .tit_wrap{
         margin-bottom: 20px;

@@ -189,9 +189,12 @@
     }
     .main_1 .main_1_visual .center_icon_wrap .symbol_wrap{
         transform: translateX(-90px);
-    }
-    .main_1 .main_1_visual .center_icon_wrap .plus_btn{
+    }    
+    .main_1 .main_1_visual .center_icon_wrap .plus_btn {
         top: 17.5px;
+    }
+    .main_1 .main_1_visual .center_icon_wrap.on .plus_btn{
+        top: 67.5px;
     }
     .main_1 .main_1_visual .center_icon_wrap.on {
         margin-top: 0;

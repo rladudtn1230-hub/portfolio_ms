@@ -630,6 +630,11 @@
         margin-left: 20px;
         font-size: 12px;
     }
+
+    .main_6 .txt_list_wrap .bottom_txt li:focus {
+        background-color: #F6F6F6;
+        color: #111;
+    }
     
 }
 .main_8 {

@@ -148,40 +148,40 @@ function Main_2(){
     if (!checkScreenSize()) {
       return; // 768px 미만이면 실행하지 않음
     }
-    const initViewportSticky = (element, container) => {        
-        const handleScroll = () => {
-            const containerTop = container.offsetTop;
-            const containerBottom = container.offsetTop + container.offsetHeight;
-            const rollerBottom = containerTop + element.offsetHeight;
-            const windowY = window.scrollY;
-            const windowHeight = window.innerHeight;                         
-            if (rollerBottom <= windowY + windowHeight && containerBottom > windowY + windowHeight) {
-                element.classList.add("fixed");
+      const initViewportSticky = (element, container) => {        
+          const handleScroll = () => {
+              const containerTop = container.offsetTop;
+              const containerBottom = container.offsetTop + container.offsetHeight;
+              const rollerBottom = containerTop + element.offsetHeight;
+              const windowY = window.scrollY;
+              const windowHeight = window.innerHeight;                         
+              if (rollerBottom <= windowY + windowHeight && containerBottom > windowY + windowHeight) {
+                  element.classList.add("fixed");
+                  element.classList.remove("done");
+              }               
+              else if (containerBottom <= windowY + windowHeight) {                
+                element.classList.add("done");       
+                element.classList.remove("fixed");
+              }else {
+                element.classList.remove("fixed");
                 element.classList.remove("done");
-            }               
-            else if (containerBottom <= windowY + windowHeight) {                
-              element.classList.add("done");       
-              element.classList.remove("fixed");
-            }else {
-              element.classList.remove("fixed");
-              element.classList.remove("done");
-            }              
-        };
+              }              
+          };
 
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();          
-        return () => {              
-            window.removeEventListener('scroll', handleScroll);
-        };
-    };
+          window.addEventListener('scroll', handleScroll);
+          handleScroll();          
+          return () => {              
+              window.removeEventListener('scroll', handleScroll);
+          };
+      };
 
-    if (animationRollerRef.current && contentWrapRef.current) {
-        const cleanup = initViewportSticky(
-            animationRollerRef.current, 
-            contentWrapRef.current
-        );
-        return cleanup;
-    }
+      if (animationRollerRef.current && contentWrapRef.current) {
+          const cleanup = initViewportSticky(
+              animationRollerRef.current, 
+              contentWrapRef.current
+          );
+          return cleanup;
+      }
     
   }, []);
   useEffect(() => {
@@ -192,21 +192,21 @@ function Main_2(){
       return; // 768px 미만이면 실행하지 않음
     }
       
-    if (imgWrapRef.current && contentWrapRef.current) {
-        gsap.to(imgWrapRef.current, {
-            x: "-100%",
-            scrollTrigger: {
-                trigger: contentWrapRef.current,
-                start: "top top",
-                end: "bottom bottom",
-                scrub: true,
-            }
-        });
-    }
+      if (imgWrapRef.current && contentWrapRef.current) {
+          gsap.to(imgWrapRef.current, {
+              x: "-100%",
+              scrollTrigger: {
+                  trigger: contentWrapRef.current,
+                  start: "top top",
+                  end: "bottom bottom",
+                  scrub: true,
+              }
+          });
+      }
 
-    return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+      return () => {
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
     
   }, []);
   
@@ -335,7 +335,7 @@ function Main_5(){
           </div>
           <div className="info info2">
             <h3>HATE</h3>
-            <div className="img_wrap">              
+            <div className="img_wrap">
               <video src="/video/main_5_video1.mp4" autoPlay loop muted />
             </div>
           </div>
@@ -459,8 +459,8 @@ function Main_8(){
         </div>
         <div className="txt_wrap">
           <div className="tit">
-            <h5>Design contact is WACUS</h5>
-            <h2>WACUS</h2>
+          <h5>Design contact is WACUS</h5>
+          <h2>WACUS</h2>
           </div>
           <ul>
             <li>TELEPHONE. 070.4288.0067</li>

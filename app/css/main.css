@@ -636,12 +636,12 @@
     align-items: center;
     justify-content: flex-end;
     position: relative;
-    height: 100dvh;
+    height: 100vh;
     position: sticky;
     top: 0;
 }
 .main_8 .img_wrap {
-    width: 100dvw;
+    width: 100vw;
     height: 100%;
     position: absolute;
     top: 50%;
@@ -879,7 +879,7 @@
         position: relative;
     }
     .product_slide_section .top_tit{
-        font-size: 14px;
+        font-size: 13px;
     }
     .product_slide_section .top_tit .date_txt{
         margin-right: 5px;

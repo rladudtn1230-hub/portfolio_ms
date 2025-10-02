@@ -16,11 +16,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">      
       <body>
-        {/* <LenisScroll> */}
+        <LenisScroll>
           <Header />
           {children}
           <Footer />
-        {/* </LenisScroll> */}
+        </LenisScroll>
       </body>
     </html>
   );

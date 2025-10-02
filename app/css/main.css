@@ -5,6 +5,25 @@
 .main_1 .w1600{
     position: relative;
 }
+.main_1 .bg_video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.3;
+    filter: blur(250px);
+}
+.main_1 .bg_video svg{
+    width: 100%;
+    height: 100%;
+}
+.main_1 .bg_video video{
+    width: 100%;
+    height: 100%;
+}
 .main_1 .main_1_visual{    
     height: 100dvh;
 }
@@ -361,6 +380,15 @@
     isolation: isolate;
     position: relative;
 }
+.main_3 .img_wrap .video_box{
+    max-height: 650px;
+    height: calc(40.625dvw - 15px);
+}
+.main_3 .img_wrap .video_box img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .main_3 .img_wrap .img_box img{
     width: 100%;
     display: block;
@@ -467,7 +495,17 @@
 }
 .main_5 .info_wrap .info.info2 .img_wrap {
     max-width : 1100px;
+    position: relative;
+    overflow: hidden;
+    max-height: 385px;
+    height: 24dvw;
 }
+.main_5 .info_wrap .info.info2 .img_wrap video{
+    width: 100%;    
+    transform: translateY(-10%);
+    left: 0;
+}
+
 .main_5 .info_wrap .info.info3 {
     flex-direction: row-reverse;
     gap: 90px;

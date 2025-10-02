@@ -232,7 +232,7 @@ function Main_2(){
       <div className="w1600">
         <div className="content_wrap" ref={contentWrapRef}>
           <div className="animation_roller" ref={animationRollerRef}>
-            <h2 className="tit_wrap">
+            <h2 className="tit_wrap noise_text_span">
               <span className="reverse_y_text">G</span>
               <span>A</span>
               <span>I</span>
@@ -243,7 +243,7 @@ function Main_2(){
               <span>E</span>
               <span className="reverse_y_text">R</span>
             </h2>
-            <div className="img_wrap" ref={imgWrapRef}>            
+            <div className="img_wrap noise_box" ref={imgWrapRef}>            
               <div className="img"></div>
             </div>
           </div>
@@ -287,7 +287,7 @@ function Main_3(){
             </h2>
           </div>
           <div className="tit nagativity_tit" ref={nagativityTitRef}>
-            <h2>
+            <h2 className="noise_text">
               <span className="reverse_y_text">N</span>
               <span>E</span>
               <span>G</span>
@@ -347,7 +347,7 @@ function Main_5(){
       <div className="w1600">
         <div className="info_wrap">
           <div className="info info1">
-            <h3>NEGATIVE</h3>
+            <h3 className="noise_text">NEGATIVE</h3>
           </div>
           <div className="info info2">
             {/* <h3>HATE</h3> */}
@@ -359,7 +359,7 @@ function Main_5(){
             </div>
           </div>
           <div className="info info3">            
-            <h3>DOUBT</h3>
+            <h3 className="noise_text">DOUBT</h3>
             <div className="img_wrap">
               <Image src="/img/main/main_5_img2.png" alt="img" width={725} height={385} />
             </div>
@@ -501,8 +501,8 @@ function Main_8(){
         </div>
         <div className="txt_wrap">
           <div className="tit">
-          <h5>Design contact is WACUS</h5>
-          <h2>WACUS</h2>
+            <h5>Design contact is WACUS</h5>
+            <h2>WACUS</h2>
           </div>
           <ul>
             <li>TELEPHONE. 070.4288.0067</li>

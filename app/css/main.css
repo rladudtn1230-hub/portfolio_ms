@@ -269,13 +269,7 @@
 }
 
 
-.main_2 .animation_roller .tit_wrap span {
-    display: block;  
-    background-image: url(/img/common/black_noise.png);
-    background-color: #f6f6f6;
-    background-clip: text;
-    color: transparent;
-}
+
 .main_2 .animation_roller .img_wrap {
     width: 100%;    
     padding-bottom: 50px;
@@ -291,16 +285,7 @@
     position: relative;
     overflow: hidden;    
 }
-.main_2 .animation_roller .img_wrap .img::after{
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url(/img/common/black_noise.png);
-}
+
 
 @media screen and (max-width: 1700px) {
     .main_2 .content_wrap{font-size: 27dvw;}
@@ -351,7 +336,7 @@
     font-size: 480px;
     font-weight: 800;
     font-family: 'Alumni Sans';
-    line-height: 0.6;
+    line-height: 0.7;
     display: flex;
     justify-content: center;
 }
@@ -479,15 +464,9 @@
     font-family: "Alumni Sans";
     font-size: 480px;
     font-style: normal;
-    font-weight: 800;
-    line-height: 150%;
-    line-height: 0.6;
+    font-weight: 800;    
+    line-height: 0.7;
     position: relative;
-
-    background-image: url(/img/common/black_noise.png);
-    background-color: #f6f6f6;
-    background-clip: text;
-    color: transparent;
 }
 .main_5 .info_wrap .info{
     margin-bottom: 95px;

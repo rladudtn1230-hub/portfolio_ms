@@ -63,13 +63,13 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
     
     return (
       <>        
-        <div className="slide_wrap" ref={slideWrapRef} >
+        <div className="slide_wrap" ref={slideWrapRef} onMouseLeave={() => {setIsOpen(false);}}>
           <Swiper
             modules={[Autoplay]}
             loop={true}                    
             slidesPerView={1}
             loopAdditionalSlides={1}
-            spaceBetween={15}
+            spaceBetween={30}
             centeredSlides={false}
             autoplay={{
               delay: 2500,
@@ -77,47 +77,41 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
             breakpoints = {{
               768: {
                 slidesPerView: 2,
-                spaceBetween: 30,                
+                spaceBetween: 115,                
               }
               
             }}                        
           >     
           {productData.map((item, i) => (
-            <SwiperSlide key={i} className="swiper-slide">
+            <SwiperSlide 
+              key={i} 
+              className="swiper-slide"
+              onMouseEnter={() => {setIsOpen(true); setSelectedProduct(i);}}               
+              onTouchStart={(e) => {
+                if (e.touches && e.touches[0]) {
+                  setTouchStartY(e.touches[0].clientY);
+                  setTouchStartX(e.touches[0].clientX);
+                }
+              }}
+              onTouchEnd={(e) => {
+                if (e.changedTouches && e.changedTouches[0]) {
+                  const touchEndY = e.changedTouches[0].clientY;
+                  const touchEndX = e.changedTouches[0].clientX;
+                  const deltaY = Math.abs(touchEndY - touchStartY);
+                  const deltaX = Math.abs(touchEndX - touchStartX);
+                  
+                  // 움직임이 적을 때만 모달 열기
+                  if (deltaY < 10 && deltaX < 10) {
+                    setIsOpen(true);
+                    setSelectedProduct(i);
+                  }
+                }
+              }}
+            >
               <a>
                 <Image src={item.src} alt={item.name} width={imageWidth} height={imageHeight} />                
               </a>
-              <div 
-                className='hover_shape' 
-                onMouseEnter={() => {setIsOpen(true); setSelectedProduct(i);}} 
-                onMouseLeave={() => {
-                  setTimeout(() => {
-                    if (modalIsMoveRef.current) {  // useRef 사용
-                      setIsOpen(false);
-                    }
-                  }, 100);
-                }}
-                onTouchStart={(e) => {
-                  if (e.touches && e.touches[0]) {
-                    setTouchStartY(e.touches[0].clientY);
-                    setTouchStartX(e.touches[0].clientX);
-                  }
-                }}
-                onTouchEnd={(e) => {
-                  if (e.changedTouches && e.changedTouches[0]) {
-                    const touchEndY = e.changedTouches[0].clientY;
-                    const touchEndX = e.changedTouches[0].clientX;
-                    const deltaY = Math.abs(touchEndY - touchStartY);
-                    const deltaX = Math.abs(touchEndX - touchStartX);
-                    
-                    // 움직임이 적을 때만 모달 열기
-                    if (deltaY < 10 && deltaX < 10) {
-                      setIsOpen(true);
-                      setSelectedProduct(i);
-                    }
-                  }
-                }}
-              ></div>
+              {/* <div className='hover_shape'></div> */}
             </SwiperSlide>           
           ))}            
           </Swiper>

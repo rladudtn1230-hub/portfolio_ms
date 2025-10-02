@@ -432,7 +432,7 @@
 
 @media screen and (max-width: 1700px) {
     .main_3 .txt_wrap .tit h2{font-size: 27dvw;}
-    .main_3 .txt_wrap .tit .progress_wrap {width: calc(100% + 25px);}
+    .main_3 .txt_wrap .tit .progress_wrap {width: calc(100% + 15px);}
 }
 @media screen and (max-width: 768px) {
     .main_3 .txt_wrap{

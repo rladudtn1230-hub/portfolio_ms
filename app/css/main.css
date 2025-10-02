@@ -2,6 +2,9 @@
     transform: rotateY(180deg);
 }
 /* main_1 */
+.main_1 {
+    overflow: hidden;
+}
 .main_1 .w1600{
     position: relative;
 }

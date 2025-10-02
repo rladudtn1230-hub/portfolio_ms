@@ -140,75 +140,93 @@ function Main_2(){
   const animationRollerRef = useRef(null);  
   const contentWrapRef = useRef(null);
   const imgWrapRef = useRef(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+    // 화면 크기 상태 관리
+    useEffect(() => {
+      const checkScreenSize = () => {
+        return window.innerWidth >= 768;
+      };
+      
+      // 초기 설정
+      setIsDesktop(checkScreenSize());
+      
+      // resize 이벤트 리스너
+      const handleResize = () => {
+        setIsDesktop(checkScreenSize());
+      };
+      
+      window.addEventListener('resize', handleResize);
+      
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
   useEffect(() => {
-    const checkScreenSize = () => {
-      return window.innerWidth >= 768;
-    };    
-    if (!checkScreenSize()) {
+    if (!isDesktop) {
       return; // 768px 미만이면 실행하지 않음
     }
-      const initViewportSticky = (element, container) => {        
-          const handleScroll = () => {
-              const containerTop = container.offsetTop;
-              const containerBottom = container.offsetTop + container.offsetHeight;
-              const rollerBottom = containerTop + element.offsetHeight;
-              const windowY = window.scrollY;
-              const windowHeight = window.innerHeight;                         
-              if (rollerBottom <= windowY + windowHeight && containerBottom > windowY + windowHeight) {
-                  element.classList.add("fixed");
-                  element.classList.remove("done");
-              }               
-              else if (containerBottom <= windowY + windowHeight) {                
-                element.classList.add("done");       
-                element.classList.remove("fixed");
-              }else {
-                element.classList.remove("fixed");
+    const initViewportSticky = (element, container) => {        
+        const handleScroll = () => {
+            const containerTop = container.offsetTop + container.offsetParent.offsetTop;
+            const containerBottom = containerTop + container.offsetHeight;
+            const rollerBottom = containerTop + element.offsetHeight;
+            const windowY = window.scrollY;
+            const windowHeight = window.innerHeight;                                     
+            console.log(rollerBottom, windowY + windowHeight )
+            console.log(containerTop)
+            if (rollerBottom <= windowY + windowHeight && containerBottom > windowY + windowHeight) {
+                element.classList.add("fixed");
                 element.classList.remove("done");
-              }              
-          };
+            }               
+            else if (containerBottom <= windowY + windowHeight) {                
+              element.classList.add("done");       
+              element.classList.remove("fixed");
+            }else {
+              element.classList.remove("fixed");
+              element.classList.remove("done");
+            }              
+        };
 
-          window.addEventListener('scroll', handleScroll);
-          handleScroll();          
-          return () => {              
-              window.removeEventListener('scroll', handleScroll);
-          };
-      };
-
-      if (animationRollerRef.current && contentWrapRef.current) {
-          const cleanup = initViewportSticky(
-              animationRollerRef.current, 
-              contentWrapRef.current
-          );
-          return cleanup;
-      }
-    
-  }, []);
-  useEffect(() => {
-    const checkScreenSize = () => {
-      return window.innerWidth >= 768;
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();          
+        return () => {              
+            window.removeEventListener('scroll', handleScroll);
+        };
     };
-    if (!checkScreenSize()) {
+
+    if (animationRollerRef.current && contentWrapRef.current) {
+        const cleanup = initViewportSticky(
+            animationRollerRef.current, 
+            contentWrapRef.current
+        );
+        return cleanup;
+    }
+    
+  }, [isDesktop]);
+  useEffect(() => {
+    if (!isDesktop) {
       return; // 768px 미만이면 실행하지 않음
     }
       
-      if (imgWrapRef.current && contentWrapRef.current) {
-          gsap.to(imgWrapRef.current, {
-              x: "-100%",
-              scrollTrigger: {
-                  trigger: contentWrapRef.current,
-                  start: "top top",
-                  end: "bottom bottom",
-                  scrub: true,
-              }
-          });
-      }
+    if (imgWrapRef.current && contentWrapRef.current) {
+        gsap.to(imgWrapRef.current, {
+            x: "-100%",
+            scrollTrigger: {
+                trigger: contentWrapRef.current,
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true,
+            }
+        });
+    }
 
-      return () => {
-          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      };
+    return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
     
-  }, []);
+  }, [isDesktop]);
   
   return (
     <section className="main_2">
@@ -334,7 +352,10 @@ function Main_5(){
             <h3>NEGATIVE</h3>
           </div>
           <div className="info info2">
-            <h3>HATE</h3>
+            {/* <h3>HATE</h3> */}
+            <div className="gif_text">
+              <Image src="/video/main5_txt.gif" alt="gif" width={1920} height={1080} />              
+            </div>
             <div className="img_wrap">
               <video src="/video/main_5_video1.mp4" autoPlay loop muted />
             </div>
@@ -418,12 +439,35 @@ function Main_7(){
 function Main_8(){
   const mainRef = useRef(null);
   const imgWrapRef = useRef(null);  
+  const [isDesktop, setIsDesktop] = useState(false);
 
+  // 화면 크기 상태 관리
   useEffect(() => {
     const checkScreenSize = () => {
       return window.innerWidth >= 768;
     };
-    if (mainRef.current && imgWrapRef.current && checkScreenSize()) {
+    
+    // 초기 설정
+    setIsDesktop(checkScreenSize());
+    
+    // resize 이벤트 리스너
+    const handleResize = () => {
+      setIsDesktop(checkScreenSize());
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isDesktop) {
+      return; // 768px 미만이면 실행하지 않음
+    }
+
+    if (mainRef.current && imgWrapRef.current ) {
         gsap.to(imgWrapRef.current, {
             width: "50%",
             transform: "translate3d(0,0,0)",            
@@ -447,7 +491,7 @@ function Main_8(){
     return () => {
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, []);
+  }, [isDesktop]);
 
   return (
     <section className="main_8" ref={mainRef}>

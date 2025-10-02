@@ -136,7 +136,6 @@ function Main_1() {
 }
 
 function Main_2(){
-  
   const animationRollerRef = useRef(null);  
   const contentWrapRef = useRef(null);
   const imgWrapRef = useRef(null);
@@ -229,8 +228,7 @@ function Main_2(){
   }, [isDesktop]);
   
   return (
-    <section className="main_2">
-      <NoiseFilter />
+    <section className="main_2">      
       <div className="w1600">
         <div className="content_wrap" ref={contentWrapRef}>
           <div className="animation_roller" ref={animationRollerRef}>
@@ -514,34 +512,5 @@ function Main_8(){
         </div>
       </div>
     </section>
-  )
-}
-
-
-function NoiseFilter() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="403" height="287" viewBox="0 0 403 287" fill="none">
-      <g filter="url(#filter0_n_241_450)">
-        <rect width="403" height="287" fill=""/>
-      </g>
-      <defs>
-        <filter id="filter0_n_241_450" x="0" y="0" width="403" height="287" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-        <feTurbulence type="fractalNoise" baseFrequency="10 10" stitchTiles="stitch" numOctaves="3" result="noise" seed="8665"/>
-        <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise"/>
-        <feComponentTransfer in="alphaNoise" result="coloredNoise1">
-        <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
-        </feComponentTransfer>
-        <feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped"/>
-        <feFlood floodColor="rgba(67, 67, 67, 0.1)" result="color1Flood"/>
-        <feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1"/>
-        <feMerge result="effect1_noise_241_450">
-        <feMergeNode in="shape"/>
-        <feMergeNode in="color1"/>
-        </feMerge>
-        </filter>
-      </defs>
-    </svg>
   )
 }

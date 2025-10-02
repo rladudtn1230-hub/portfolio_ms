@@ -721,6 +721,9 @@
     .main_8 {
         height: 100dvh;
     }
+    .main_8 .w1600 {
+        position: relative;
+    }
     .main_8 .txt_wrap{
         width: 100%;
         position: absolute;
@@ -746,6 +749,9 @@
     }
     .main_8 .txt_wrap ul li {
         font-size: 13px;
+    }
+    .main_8 .img_wrap:hover .symbol_img{
+        opacity: 1;
     }
 }
 /* 메인 상품 슬라이드 단락 */

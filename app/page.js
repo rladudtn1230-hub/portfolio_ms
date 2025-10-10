@@ -264,8 +264,8 @@ function Main_2(){
                 <span className="reverse_y_text">R</span>
               </div>
             </h2>
-            <div className="img_wrap noise_box" ref={imgWrapRef}>            
-              <div className="img"></div>
+            <div className="img_wrap" ref={imgWrapRef}>            
+              <div className="img noise_box"></div>
             </div>
           </div>
           </div>

@@ -60,7 +60,7 @@ function Main_1() {
         </div>
         <div className="w1600">
           <div className="main_1_visual">
-            <div className={`center_icon_wrap ${iconOpen ? 'on' : ''}`} onClick={() => setIconOpen(!iconOpen)} onTouchEnd={() => setIconOpen(!iconOpen)}>
+            <div className={`center_icon_wrap ${iconOpen ? 'on' : ''}`} onClick={() => setIconOpen(!iconOpen)}>
                 <div className="symbol_wrap">
                   <video src={"video/symbol.mp4"} type="video/mp4" width="231" height="230" autoPlay loop muted></video>
                   {/* <svg width="231" height="230" viewBox="0 0 231 230" fill="none" xmlns="http://www.w3.org/2000/svg" id="main_symbol">

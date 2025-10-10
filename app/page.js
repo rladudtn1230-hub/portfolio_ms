@@ -401,15 +401,21 @@ function Main_6(){
         const bottomTxtList = item.querySelectorAll("li");
         
         bottomTxtList.forEach(item => {
-          item.addEventListener("click", () => {
-            item.classList.toggle("on");
+          item.addEventListener("touchstart", () => {
+            item.classList.add("on");
+          });
+          item.addEventListener("touchend", () => {
+            item.classList.remove("on");
           });
         });
                 
         return () => {
           bottomTxtList.forEach(item => {
             item.removeEventListener("click", () => {
-              item.classList.toggle("on");
+              item.classList.add("on");
+            });
+            item.removeEventListener("touchend", () => {
+              item.classList.remove("on");
             });
           });
         };

@@ -137,7 +137,7 @@
     bottom: 12dvh;
     width: 100%;
 }
-@media (max-width: 1280px) {
+@media screen and (max-width: 1280px) {
     .main_1 .main_1_visual .txt_wrap{
         flex-flow: column;
         max-width: 100%;
@@ -171,7 +171,7 @@
         font-size: 16px;
     }    
 }
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .main_1 .main_1_visual{
         display: flex;
         flex-flow: column;
@@ -226,6 +226,20 @@
         font-size: 14px;
     }    
 }
+@media screen and  (max-height: 620px){
+    .main_1 .main_1_visual .center_icon_wrap{
+        margin-top: calc(40vh - 120px);
+    }
+    .main_1 .main_1_visual .txt_container{
+        padding-top: 40vh;
+    }
+    .main_1 .main_1_visual .txt_wrap ul{
+        margin-bottom: 5vh;
+    }
+    .main_1 .down_txt{
+        font-size: 12px;
+    }
+}
 .main_2{
     padding: 80px 0;
     overflow: hidden;
@@ -258,7 +272,7 @@
     bottom: 0;
 }
 
-.main_2 .animation_roller .tit_wrap {
+.main_2 .tit_wrap {
     position: relative;
     line-height: 0.63;
     margin-bottom: 50px;
@@ -267,14 +281,20 @@
     font-family: 'Alumni Sans';
     position: relative;
 }
+.main_2 .tit_wrap .scroll_ani_box{
+    display: flex;
+    align-items: center;
+}
+.main_2 .tit_wrap span{
+    display: block;
+}
 
 
-
-.main_2 .animation_roller .img_wrap {
+.main_2 .img_wrap {
     width: 100%;    
     padding-bottom: 50px;
 }
-.main_2 .animation_roller .img_wrap .img {
+.main_2 .img_wrap .img {
     background-image: url(/img/main/main_2_img1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -296,17 +316,17 @@
         padding-bottom: 0px;
         padding-top: 30px;
     }
-    .main_2 .animation_roller .img_wrap{
+    .main_2 .img_wrap{
         padding-bottom: 0px;
     }
-    .main_2 .animation_roller .img_wrap .img{
+    .main_2  .img_wrap .img{
         height: 160px;
         width: calc(100% + 100px);
         margin-left: -50px;
         border-radius: 0px;
         background-position-x: 20%;
     }
-    .main_2 .animation_roller .tit_wrap{
+    .main_2 .tit_wrap{
         margin-bottom: 20px;
     }
     .main_2 .content_wrap {
@@ -329,22 +349,23 @@
     -webkit-text-stroke: 1px #F6F6F6; 
     text-stroke: 1px #F6F6F6;
     position: relative;
-}
-.main_3 .txt_wrap .tit.nagativity_tit {
-    color: hsl(0, 0%, 96%);
-}
-.main_3 .txt_wrap .tit h2{    
     font-size: 480px;
     font-weight: 800;
     font-family: 'Alumni Sans';
     line-height: 0.7;
+    
+}
+.main_3 .txt_wrap .tit .scroll_ani_box {
     display: flex;
     justify-content: center;
 }
-.main_3 .txt_wrap .tit h2 span{
+.main_3 .txt_wrap .tit.nagativity_tit {
+    color: hsl(0, 0%, 96%);
+}
+.main_3 .txt_wrap .tit span{
     display: block;
 }
-.main_3 .txt_wrap .tit h2 span.space_right{
+.main_3 .txt_wrap .tit span.space_right{
     margin-right: 0.15em;
 }
 .main_3 .txt_wrap .tit .progress_wrap {
@@ -431,7 +452,7 @@
 }
 
 @media screen and (max-width: 1700px) {
-    .main_3 .txt_wrap .tit h2{font-size: 27dvw;}
+    .main_3 .txt_wrap .tit{font-size: 27dvw;}
     .main_3 .txt_wrap .tit .progress_wrap {width: calc(100% + 15px);}
 }
 @media screen and (max-width: 768px) {
@@ -605,7 +626,8 @@
     border-bottom: 0.5px solid rgba(246, 246, 246, 0.8);
     transition: 0.2s;
 }
-.main_6 .txt_list_wrap .bottom_txt li:hover {
+.main_6 .txt_list_wrap .bottom_txt li:hover, 
+.main_6 .txt_list_wrap .bottom_txt li:active {
     background-color: #F6F6F6;
     color: #111;
 }
@@ -630,12 +652,7 @@
     .main_6 .txt_list_wrap .bottom_txt li{
         margin-left: 20px;
         font-size: 12px;
-    }
-
-    .main_6 .txt_list_wrap .bottom_txt li:focus {
-        background-color: #F6F6F6;
-        color: #111;
-    }
+    }  
     
 }
 .main_8 {
@@ -793,7 +810,7 @@
 }
 .product_slide_section .swiper img{
     display: block;
-    width: 100%;
+    /* width: 100%; */
 }
 .product_slide_section .swiper .hover_shape {
     width: calc(100% - 100px);
@@ -934,5 +951,24 @@
         font-size: 12px;
         letter-spacing: 0.1em;
         padding: 10px 20px;
+    }
+}
+@media screen and (max-height: 700px) {
+    .product_slide_section .product_modal_wrap {
+        width: 450px;
+    }
+    .product_slide_section .product_modal_wrap .img{
+        height: 280px;
+    }
+    .product_slide_section .product_modal_wrap .txt_wrap h3{
+        font-size: 17px;
+    }
+    .product_slide_section .product_modal_wrap .bottom_txt span{
+        font-size: 12px;
+        letter-spacing: 1.2px;
+    }
+    .product_slide_section .product_modal_wrap .bottom_txt a{
+        font-size: 13px;
+        letter-spacing: 2px;
     }
 }

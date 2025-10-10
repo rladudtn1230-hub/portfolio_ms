@@ -6,17 +6,17 @@
 }
 @media all and (max-width: 1700px) {
   .w1600{
-    margin: 0 50px;
+    padding: 0 5px;
   }
 }
 @media all and (max-width: 1200px) {
   .w1600{
-    margin: 0 30px;
+    padding: 0 30px;
   }
 }
 @media all and (max-width: 768px) {
   .w1600{
-    margin: 0 22.5px;
+    padding: 0 22.5px;
   }
 }
 .w1500 {

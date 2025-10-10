@@ -172,9 +172,7 @@ function Main_2(){
             const containerBottom = containerTop + container.offsetHeight;
             const rollerBottom = containerTop + element.offsetHeight;
             const windowY = window.scrollY;
-            const windowHeight = window.innerHeight;                                     
-            console.log(rollerBottom, windowY + windowHeight )
-            console.log(containerTop)
+            const windowHeight = window.innerHeight;                                                 
             if (rollerBottom <= windowY + windowHeight && containerBottom > windowY + windowHeight) {
                 element.classList.add("fixed");
                 element.classList.remove("done");
@@ -250,16 +248,18 @@ function Main_2(){
       <div className="w1600">
         <div className="content_wrap" ref={contentWrapRef}>
           <div className="animation_roller" ref={animationRollerRef}>
-            <h2 className="tit_wrap noise_text_span">
-              <span className="reverse_y_text">G</span>
-              <span>A</span>
-              <span>I</span>
-              <span>N</span>
-              <span className="reverse_y_text">S</span>
-              <span>A</span>
-              <span>Y</span>
-              <span>E</span>
-              <span className="reverse_y_text">R</span>
+            <h2 className="tit_wrap noise_text_span scroll_overflow_y" data-aos="none">
+              <div className="scroll_ani_box">
+                <span className="reverse_y_text">G</span>
+                <span>A</span>
+                <span>I</span>
+                <span>N</span>
+                <span className="reverse_y_text">S</span>
+                <span>A</span>
+                <span>Y</span>
+                <span>E</span>
+                <span className="reverse_y_text">R</span>
+              </div>
             </h2>
             <div className="img_wrap noise_box" ref={imgWrapRef}>            
               <div className="img"></div>
@@ -292,8 +292,8 @@ function Main_3(){
     <section className="main_3">
       <div className="w1600">
         <div className="txt_wrap">
-          <div className="tit">
-            <h2>
+          <h2 className="tit scroll_overflow_y" data-aos="none">
+            <div className="scroll_ani_box">
               <span>D</span>
               <span>E</span>
               <span className="reverse_y_text">N</span>
@@ -302,10 +302,10 @@ function Main_3(){
               <span className="space_right">L</span>
               <span>O</span>
               <span>F</span>
-            </h2>
-          </div>
-          <div className="tit nagativity_tit" ref={nagativityTitRef}>
-            <h2 className="noise_text">
+            </div>
+          </h2>
+          <h2 className="tit nagativity_tit noise_text scroll_overflow_y" ref={nagativityTitRef} data-aos="none">
+            <div className="scroll_ani_box">
               <span className="reverse_y_text">N</span>
               <span>E</span>
               <span>G</span>
@@ -316,14 +316,14 @@ function Main_3(){
               <span>I</span>
               <span>T</span>
               <span>Y</span>
-            </h2>
+            </div>
             <ProgressBar onPercentageChange={handlePercentageChange} />
-          </div>
+          </h2>
         </div>
         <figure className="img_wrap">
           <div className="img_lt">
             <div className="img_box video_box">
-              <Image src="/video/main_3_video1.gif" alt="img" width={1012} height={674} />
+              <Image src="/video/main_3_video1.gif" alt="img" width={1012} height={674} unoptimized/>
               <div className="blue_filter"></div>
             </div>
           </div>
@@ -365,19 +365,29 @@ function Main_5(){
       <div className="w1600">
         <div className="info_wrap">
           <div className="info info1">
-            <h3 className="noise_text">NEGATIVE</h3>
+            <h3 className="noise_text scroll_overflow_y" data-aos="none">
+              <div className="scroll_ani_box">
+                NEGATIVE
+              </div>
+            </h3>
           </div>
           <div className="info info2">
             {/* <h3>HATE</h3> */}
             <div className="gif_text">
-              <Image src="/video/main5_txt.gif" alt="gif" width={1920} height={1080} />              
+              <div className="scroll_ani_box">
+                <Image src="/video/main5_txt.gif" alt="gif" width={1920} height={1080} unoptimized/>  
+              </div>            
             </div>
             <div className="img_wrap">
               <video src="/video/main_5_video1.mp4" autoPlay loop muted />
             </div>
           </div>
           <div className="info info3">            
-            <h3 className="noise_text">DOUBT</h3>
+            <h3 className="noise_text scroll_overflow_y" data-aos="none">
+              <div className="scroll_ani_box">
+                DOUBT
+              </div>
+            </h3>
             <div className="img_wrap">
               <Image src="/img/main/main_5_img2.png" alt="img" width={725} height={385} />
             </div>
@@ -514,7 +524,7 @@ function Main_8(){
       <div className="w1600">
         <div className="img_wrap" ref={imgWrapRef}>
           <div className="img">
-            <div className="symbol_img"></div>  
+            <div className="symbol_img noise_box"></div>  
           </div>          
         </div>
         <div className="txt_wrap">

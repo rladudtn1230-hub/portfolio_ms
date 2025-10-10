@@ -53,8 +53,7 @@ export default function ProgressBar({ onPercentageChange }) {
             element.classList.add('dragging', 'on');
         };
         
-        const dragDone = (event) => {            
-            event.preventDefault();
+        const dragDone = (event) => {                        
             isDragging = false;
             
             document.removeEventListener('mousemove', slide);

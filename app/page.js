@@ -406,15 +406,14 @@ function Main_6(){
         const bottomTxtList = item.querySelectorAll("li");
         
         bottomTxtList.forEach(item => {
-          item.addEventListener("touchend", () => {
+          item.addEventListener("click", () => {
             item.classList.toggle("on");
           });
         });
-        
-        // cleanup
+                
         return () => {
           bottomTxtList.forEach(item => {
-            item.removeEventListener("touchend", () => {
+            item.removeEventListener("click", () => {
               item.classList.toggle("on");
             });
           });
@@ -490,17 +489,14 @@ function Main_8(){
   const imgWrapRef = useRef(null);  
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobileClick, setIsMobileClick] = useState(false);
-
+  const [draggingPosition, setDraggingPosition] = useState(0);
   // 화면 크기 상태 관리
   useEffect(() => {
     const checkScreenSize = () => {
       return window.innerWidth >= 768;
-    };
-    
-    // 초기 설정
+    };        
     setIsDesktop(checkScreenSize());
-    
-    // resize 이벤트 리스너
+        
     const handleResize = () => {
       setIsDesktop(checkScreenSize());
     };
@@ -534,6 +530,7 @@ function Main_8(){
         ScrollTrigger.create({
             trigger: mainRef.current,
             start: "bottom 120%",
+            end : "bottom top",
             toggleClass: { targets: mainRef.current, className: "finish" }
         });
     }
@@ -544,11 +541,17 @@ function Main_8(){
   }, [isDesktop]);
 
   useEffect(() => {
+    
     if (isDesktop) {
       return;
     }
-
+    let startY = 0;
+    let moveY = 0
+   
     function handleMobileClick() {
+      if (startY - moveY != 0) {
+        return;
+      }
       setIsMobileClick(prev => {
         if (!prev) {
           mainRef.current.classList.add("m_click");
@@ -558,10 +561,10 @@ function Main_8(){
           return false;
         }
       });
-    }
-    mainRef.current.addEventListener("touchend", handleMobileClick);
-    return () => {
-      mainRef.current.removeEventListener("touchend", handleMobileClick);
+    }        
+    mainRef.current.addEventListener("click", handleMobileClick);
+    return () => {      
+      mainRef.current.removeEventListener("click", handleMobileClick);
     }
 
   }, [isDesktop])

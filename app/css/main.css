@@ -980,5 +980,6 @@
     .product_slide_section .product_modal_wrap .bottom_txt a{
         font-size: 10px;        
         padding: 10px 10px;
+        justify-content: center
     }
 }

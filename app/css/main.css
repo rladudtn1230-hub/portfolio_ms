@@ -86,7 +86,9 @@
 .main_1 .main_1_visual .center_icon_wrap .symbol_wrap{
     width: 85px;
     transform: translateX(-70px);
-    transition: 0.45s cubic-bezier(0.34, 1.2, 0.64, 1.1);    
+    transition: 0.45s cubic-bezier(0.34, 1.2, 0.64, 1.1);
+    display: flex;
+    justify-content: center;
 }
 .main_1 .main_1_visual .center_icon_wrap .symbol_wrap svg{
     width: 100%;
@@ -97,7 +99,8 @@
 }
 .main_1 .main_1_visual .center_icon_wrap .symbol_wrap video{
     display: block;
-    width: 100%;
+    width: 150%;
+    height: auto;
 }
 .main_1 .main_1_visual .center_icon_wrap .plus_btn {
     position: absolute;
@@ -559,6 +562,7 @@
         font-size: 30dvw;
     }
 }
+
 @media screen and (max-width: 768px) {
     .main_5{
         padding: 55px 0 55px 0;
@@ -637,13 +641,15 @@
     border-bottom: 0.5px solid rgba(246, 246, 246, 0.8);
     transition: 0.2s;
 }
-.main_6 .txt_list_wrap .bottom_txt li:hover {
-    background-color: #F6F6F6;
-    color: #111;
-}
 .main_6 .txt_list_wrap .bottom_txt li.on {
     background-color: #F6F6F6;
     color: #111;
+}
+@media screen and (min-width: 769px) {
+    .main_6 .txt_list_wrap .bottom_txt li:hover{
+        background-color: #F6F6F6;
+        color: #111;
+    }
 }
 @media screen and (max-width: 768px) {
     .main_6{

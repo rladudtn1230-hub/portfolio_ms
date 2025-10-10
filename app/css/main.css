@@ -702,7 +702,7 @@
 
 .main_8 .txt_wrap {
     width: 50%;
-    text-align: right;
+    text-align: right;    
 }
 .main_8 .txt_wrap h5 {
     color: #FFF;    
@@ -748,6 +748,10 @@
     }
     .main_8 .txt_wrap ul li{
         font-size: 20px;
+    }
+    .main_8.aos-animate .img_wrap:hover .symbol_img,
+    .main_8.aos-animate .img_wrap:active .symbol_img{
+        opacity: 1;
     }
 }
 @media screen and (max-width: 768px) {

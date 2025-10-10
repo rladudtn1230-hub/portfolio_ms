@@ -520,7 +520,7 @@ function Main_8(){
   }, [isDesktop]);
 
   return (
-    <section className="main_8" ref={mainRef}>
+    <section className="main_8" data-aos="none" ref={mainRef}>
       <div className="w1600">
         <div className="img_wrap" ref={imgWrapRef}>
           <div className="img">

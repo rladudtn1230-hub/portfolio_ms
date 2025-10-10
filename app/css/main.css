@@ -542,6 +542,9 @@
 .main_5 .info_wrap .info.info3 .img_wrap {
     max-width: 850px;    
 }
+.main_5 .info_wrap .info.info3 h3{
+    min-width: 1.935em;
+}
 
 @media screen and (max-width: 1700px) {
     .main_5 .info_wrap .info h3{
@@ -706,7 +709,7 @@
     font-size: 30px;    
     font-weight: 500;
     line-height: 150%; /* 45px */
-    letter-spacing: 0.7em;
+    letter-spacing: 0.07em;
 }
 .main_8 .txt_wrap h2 {
     color: #F6F6F6;    
@@ -737,9 +740,15 @@
     background-color: #FFF;
 }
 @media screen and (max-width: 1200px) {
-    .main_8 .txt_wrap h2{font-size: 180px;}
-    .main_8 .txt_wrap h5{font-size: 20px;}
-    .main_8 .txt_wrap ul li{font-size: 20px;}
+    .main_8 .txt_wrap h2{
+        font-size: 180px;
+    }
+    .main_8 .txt_wrap h5{
+        font-size: 20px;
+    }
+    .main_8 .txt_wrap ul li{
+        font-size: 20px;
+    }
 }
 @media screen and (max-width: 768px) {
     .main_8 {

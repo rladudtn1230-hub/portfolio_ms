@@ -387,7 +387,7 @@ function Main_5(){
               </div>            
             </div>
             <div className="img_wrap">
-              <video src="/video/main_5_video1.mp4" autoPlay loop muted />
+              <video src="/video/main_5_video1.mp4" autoPlay loop muted playsInline style={{ objectFit: 'cover' }} controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture/>
             </div>
           </div>
           <div className="info info3">            

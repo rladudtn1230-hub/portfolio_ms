@@ -44,17 +44,7 @@ function Main_1() {
             </mask>
           </defs>
           <foreignObject width="1875" height="1435" mask="url(#bg-mask)">            
-            <video 
-              width="1875" 
-              height="1435" 
-              autoPlay 
-              loop 
-              muted
-              playsInline
-              style={{ objectFit: 'cover' }}
-              controlslist="nodownload nofullscreen noremoteplayback" 
-              disablepictureinpicture
-            >
+            <video width="1875" height="1435" autoPlay loop muted playsInline style={{ objectFit: 'cover' }} >
               <source src="/video/main_1_bg_video.mp4" type="video/mp4" />
             </video>
           </foreignObject>
@@ -64,11 +54,7 @@ function Main_1() {
           <div className="main_1_visual">
             <div className={`center_icon_wrap ${iconOpen ? 'on' : ''}`} onClick={() => setIconOpen(!iconOpen)}>
                 <div className="symbol_wrap">
-                  <video width="231" height="230" 
-                    autoPlay loop muted playsInline preload="auto" 
-                    style={{ objectFit: 'cover' }} 
-                    controlslist="nodownload nofullscreen noremoteplayback" 
-                    disablepictureinpicture>
+                  <video width="231" height="230" autoPlay loop muted playsInline preload="auto" style={{ objectFit: 'cover' }} >
                     <source src="/video/symbol.mp4" type="video/mp4" />
                   </video>
                   {/* <svg width="231" height="230" viewBox="0 0 231 230" fill="none" xmlns="http://www.w3.org/2000/svg" id="main_symbol">
@@ -387,7 +373,7 @@ function Main_5(){
               </div>            
             </div>
             <div className="img_wrap">
-              <video src="/video/main_5_video1.mp4" autoPlay loop muted playsInline style={{ objectFit: 'cover' }} controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture/>
+              <video src="/video/main_5_video1.mp4" autoPlay loop muted playsInline style={{ objectFit: 'cover' }}/>
             </div>
           </div>
           <div className="info info3">            

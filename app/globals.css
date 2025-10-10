@@ -62,7 +62,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-alumni-sans);
+  font-family: "Archivo Condensed";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

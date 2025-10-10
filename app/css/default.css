@@ -276,7 +276,7 @@
   width: max-content;
   color: #fff;
   text-align: center;
-  font-family: Pretendard;
+  font-family: "Archivo Condensed";
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -296,14 +296,14 @@
   padding-top: 10px;
   justify-content: space-between;
   width: 100%;
-  font-family: Pretendard;
+  font-family: "Archivo Condensed";
   box-sizing: border-box;
 }
 
 .slider_wrap .info_group p {
   text-align: center;
   color: #737373;
-  font-family: Pretendard;
+  font-family: "Archivo Condensed";
   font-size: 16px;
   font-style: normal;
   font-weight: 500;

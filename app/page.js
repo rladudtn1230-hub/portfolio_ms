@@ -398,13 +398,37 @@ function Main_5(){
 }
 
 function Main_6(){
+  const txtListRef = useRef(null);
+  useEffect(() => {
+    const bottomTxt = txtListRef.current?.querySelectorAll(".bottom_txt");    
+    bottomTxt.forEach(item => {
+      if (bottomTxt) {
+        const bottomTxtList = item.querySelectorAll("li");
+        
+        bottomTxtList.forEach(item => {
+          item.addEventListener("touchend", () => {
+            item.classList.toggle("on");
+          });
+        });
+        
+        // cleanup
+        return () => {
+          bottomTxtList.forEach(item => {
+            item.removeEventListener("touchend", () => {
+              item.classList.toggle("on");
+            });
+          });
+        };
+      }
+    });
+  }, []);
   return (
     <section className="main_6">
        <div className="main_6_wrap">
         <div className="symbol_wrap">
           <Symbol />          
         </div>
-        <div className="txt_list_wrap">
+        <div className="txt_list_wrap" ref={txtListRef}>
           <div className="txt_list">
             <ol className="top_txt">
                <li>DROP 01</li>
@@ -465,6 +489,7 @@ function Main_8(){
   const mainRef = useRef(null);
   const imgWrapRef = useRef(null);  
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isMobileClick, setIsMobileClick] = useState(false);
 
   // 화면 크기 상태 관리
   useEffect(() => {
@@ -518,12 +543,37 @@ function Main_8(){
     };
   }, [isDesktop]);
 
+  useEffect(() => {
+    if (isDesktop) {
+      return;
+    }
+
+    function handleMobileClick() {
+      setIsMobileClick(prev => {
+        if (!prev) {
+          mainRef.current.classList.add("m_click");
+          return true;
+        } else {
+          mainRef.current.classList.remove("m_click");
+          return false;
+        }
+      });
+    }
+    mainRef.current.addEventListener("touchend", handleMobileClick);
+    return () => {
+      mainRef.current.removeEventListener("touchend", handleMobileClick);
+    }
+
+  }, [isDesktop])
+
   return (
-    <section className="main_8" data-aos="none" ref={mainRef}>
+    <section className="main_8" ref={mainRef}>
       <div className="w1600">
         <div className="img_wrap" ref={imgWrapRef}>
           <div className="img">
-            <div className="symbol_img noise_box"></div>  
+            <div className="symbol_img noise_box">
+              <div className="symbol_img_inner"></div>  
+            </div>  
           </div>          
         </div>
         <div className="txt_wrap">

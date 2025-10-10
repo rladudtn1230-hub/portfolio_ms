@@ -64,13 +64,37 @@ export default function ProgressBar({ onPercentageChange }) {
             if (!element.matches(':hover')) {
                 element.classList.remove('on');
             }
-        };        
+        };
+        const clickDrag = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            // 드래그 중이 아닐 때만 클릭으로 처리
+            if (!isDragging) {
+                const clientX = event.clientX || 
+                            (event.touches && event.touches[0]?.clientX) || 
+                            (event.changedTouches && event.changedTouches[0]?.clientX);
+        
+                if (clientX === undefined) return;
+        
+                const barRect = progressBar.getBoundingClientRect();
+                const x = clientX - barRect.left;
+        
+                let newPercentage = (x / barRect.width) * 100;
+                newPercentage = Math.max(0, Math.min(100, newPercentage));
+        
+                setPercentage(newPercentage);
+                onPercentageChange(newPercentage);                
+            }
+        };
         // 이벤트 리스너 등록
         progressButton.addEventListener('mousedown', dragStart);
         progressButton.addEventListener('touchstart', dragStart, { passive: false });
         document.addEventListener('mouseup', dragDone);
         document.addEventListener('touchend', dragDone);
-        document.addEventListener('touchcancel', dragDone);        
+        document.addEventListener('touchcancel', dragDone);    
+        progressBar.addEventListener('click', clickDrag);
+        progressBar.addEventListener('touchend', clickDrag);
 
         return () => {
             progressButton.removeEventListener('mousedown', dragStart);
@@ -80,6 +104,8 @@ export default function ProgressBar({ onPercentageChange }) {
             document.removeEventListener('touchcancel', dragDone);
             document.removeEventListener('mousemove', slide);
             document.removeEventListener('touchmove', slide);
+            progressBar.removeEventListener('click', clickDrag);
+            progressBar.removeEventListener('touchend', clickDrag);
         };
     }, [setPercentage]);
 

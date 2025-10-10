@@ -46,8 +46,8 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 27px */
-    letter-spacing: 2.52px;
+    line-height: 150%; 
+    letter-spacing: 0.14em;
     margin: 6px 0;
     display: flex;
     align-items: center;
@@ -132,7 +132,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 150%; /* 27px */
-    letter-spacing: 2.52px;
+    letter-spacing: 0.14em;
     position: absolute;
     bottom: 12dvh;
     width: 100%;
@@ -147,8 +147,7 @@
     }    
     .main_1 .main_1_visual .txt_wrap li {
         font-size: 15px;
-        padding-right: 0px;
-        letter-spacing: 1.68px;
+        padding-right: 0px;        
     }
     .main_1 .main_1_visual .rt_txt_wrap ul{
         padding-left: 0px;
@@ -706,7 +705,7 @@
     font-size: 30px;    
     font-weight: 500;
     line-height: 150%; /* 45px */
-    letter-spacing: 2.1px;
+    letter-spacing: 0.7em;
 }
 .main_8 .txt_wrap h2 {
     color: #F6F6F6;    
@@ -725,7 +724,7 @@
     font-size: 30px;    
     font-weight: 300;
     line-height: 150%; /* 45px */
-    letter-spacing: 4.2px;
+    letter-spacing: 0.14em;
     width: max-content;    
     margin-bottom: 8px;
 }
@@ -772,8 +771,7 @@
         line-height: 0.7;
     }
     .main_8 .txt_wrap ul li {
-        font-size: 14px;
-        letter-spacing:1.96px ;
+        font-size: 14px;        
     }
     .main_8 .img_wrap:hover .symbol_img{
         opacity: 1;
@@ -795,12 +793,12 @@
 }
 .product_slide_section .top_tit .date_txt {
     color: #111;    
-    letter-spacing: 1.5px;
+    letter-spacing: 0.05em;
     margin-right: 14px;
 }
 .product_slide_section .top_tit .tit_txt {
     color: #F6F6F6;    
-    letter-spacing: 4.2px;
+    letter-spacing: 0.14em;
     background-color: #111;
     padding: 0 20px;
 }
@@ -830,8 +828,8 @@
     color: #F6F6F6;    
     font-size: 30px;    
     font-weight: 700;
-    line-height: 150%; /* 45px */
-    letter-spacing: 4.2px;
+    line-height: 150%;
+    letter-spacing: 0.14em;
     background-color: #111;    
     display: block;
     padding: 0 20px;
@@ -880,7 +878,7 @@
     font-size: 24px;
     font-weight: 500;
     line-height: 150%; /* 45.585px */
-    letter-spacing: 4.255px;
+    letter-spacing: 0.1773em;
 }
 .product_slide_section .product_modal_wrap .bottom_txt {
     display: flex;
@@ -894,13 +892,13 @@
     padding: 17px 40px;        
     border-right: 1px solid rgba(17, 17, 17, 0.60);
     font-size: 17px;            
-    letter-spacing: 2.8px;
+    letter-spacing: 0.165em;
 }
 .product_slide_section .product_modal_wrap .bottom_txt a{    
     font-family: "Archivo Condensed";
     font-size: 16px;
     font-style: normal;    
-    letter-spacing: 4.159px;
+    letter-spacing: 0.26em;
     display: block;
     padding: 10px 40px;    
     flex: 1;
@@ -943,13 +941,11 @@
         font-size: 15px;
     }
     .product_slide_section .product_modal_wrap .bottom_txt span{
-        font-size: 12px;
-        letter-spacing: 0.1em;
+        font-size: 12px;        
         padding: 10px 20px;
     }
     .product_slide_section .product_modal_wrap .bottom_txt a{
-        font-size: 12px;
-        letter-spacing: 0.1em;
+        font-size: 12px;        
         padding: 10px 20px;
     }
 }
@@ -964,11 +960,9 @@
         font-size: 17px;
     }
     .product_slide_section .product_modal_wrap .bottom_txt span{
-        font-size: 12px;
-        letter-spacing: 1.2px;
+        font-size: 12px;        
     }
     .product_slide_section .product_modal_wrap .bottom_txt a{
-        font-size: 13px;
-        letter-spacing: 2px;
+        font-size: 13px;        
     }
 }

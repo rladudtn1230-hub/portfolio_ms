@@ -353,6 +353,7 @@
     font-weight: 800;
     font-family: 'Alumni Sans';
     line-height: 0.7;
+    transition: color 0s;
     
 }
 .main_3 .txt_wrap .tit .scroll_ani_box {

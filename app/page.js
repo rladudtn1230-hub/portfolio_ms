@@ -280,11 +280,10 @@ function Main_3(){
       setPercentage(newPercentage);
   };
 
-  useEffect(() => {
-      const tit = nagativityTitRef.current?.querySelector("h2");
-      if (tit) {
+  useEffect(() => {      
+      if (nagativityTitRef.current) {
           const lightness = 96 - (96 - 7) * (percentage / 100);
-          tit.style.color = `hsl(0, 0%, ${lightness}%)`;
+          nagativityTitRef.current.style.color = `hsl(0, 0%, ${lightness}%)`;
       }
   }, [percentage]);
 

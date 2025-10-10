@@ -62,7 +62,9 @@ function Main_1() {
           <div className="main_1_visual">
             <div className={`center_icon_wrap ${iconOpen ? 'on' : ''}`} onClick={() => setIconOpen(!iconOpen)}>
                 <div className="symbol_wrap">
-                  <video src={"video/symbol.mp4"} type="video/mp4" width="231" height="230" autoPlay loop muted></video>
+                  <video width="231" height="230" autoPlay loop muted playsInline preload="auto">
+                    <source src="/video/symbol.mp4" type="video/mp4" />
+                  </video>
                   {/* <svg width="231" height="230" viewBox="0 0 231 230" fill="none" xmlns="http://www.w3.org/2000/svg" id="main_symbol">
                     <defs>
                       <mask id="symbol-mask">

@@ -110,6 +110,17 @@
     object-fit: contain;
     background: transparent;
 }
+.main_1 .main_1_visual .center_icon_wrap .symbol_wrap video::-webkit-media-controls {
+    display: none !important;
+}
+
+.main_1 .main_1_visual .center_icon_wrap .symbol_wrap video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+.main_1 .main_1_visual .center_icon_wrap .symbol_wrap video::-webkit-media-controls-panel {
+    display: none !important;
+}
 .main_1 .main_1_visual .center_icon_wrap .plus_btn {
     position: absolute;
     width: 25px;

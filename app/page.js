@@ -492,7 +492,7 @@ function Main_8(){
   const imgWrapRef = useRef(null);  
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobileClick, setIsMobileClick] = useState(false);
-  const [draggingPosition, setDraggingPosition] = useState(0);
+  
   // 화면 크기 상태 관리
   useEffect(() => {
     const checkScreenSize = () => {

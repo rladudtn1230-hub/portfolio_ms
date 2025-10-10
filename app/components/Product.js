@@ -14,9 +14,31 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
     const modalRef = useRef(null);
     const modalIsMoveRef = useRef(true);
     const [touchStartY, setTouchStartY] = useState(0);
-    const [touchStartX, setTouchStartX] = useState(0);    
+    const [touchStartX, setTouchStartX] = useState(0);
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+      const checkScreenSize = () => {
+        return window.innerWidth >= 768;
+      };
+      
+      // 초기 설정
+      setIsDesktop(checkScreenSize());
+      
+      // resize 이벤트 리스너
+      const handleResize = () => {
+        setIsDesktop(checkScreenSize());
+      };
+      
+      window.addEventListener('resize', handleResize);
+      
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);    
     
     useEffect(() => {
+      if(!isDesktop) return;
       window.addEventListener("scroll", ()=>{        
         if(isOpen){          
           if(slideWrapRef.current.offsetTop >= window.scrollY + window.innerHeight || slideWrapRef.current.offsetTop + slideWrapRef.current.offsetHeight <= window.scrollY){
@@ -24,10 +46,11 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
           }
         }
       })
-    }, [isOpen])
+    }, [isOpen, isDesktop])
 
     // 모달 위치 제어 useEffect
     useEffect(() => {
+      if(!isDesktop) return;
       const checkScreenSize = () => {
         return window.innerWidth >= 768;
       };
@@ -54,7 +77,7 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
           slideWrapRef.current.removeEventListener("mousemove", handleMouseMove);
         }
       };
-    }, [modalIsMove]) 
+    }, [modalIsMove, isDesktop]) 
 
     // productData가 배열인지 확인
     if (!productData || !Array.isArray(productData)) {
@@ -125,7 +148,7 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
             onMouseLeave={() => {
               setModalIsMove(true);
               modalIsMoveRef.current = true;   // useRef도 함께 업데이트
-            }}
+            }}       
           >
             <div className="img">
             <Image 
@@ -133,7 +156,9 @@ export default function Product({ productData, imageWidth = 744, imageHeight = 8
                 alt={productData[selectedProduct]?.name || productData[0]?.name} 
                 width={imageWidth} 
                 height={imageHeight}
-                onTouchEnd={() => {
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
                   setIsOpen(false);
                 }}
             />

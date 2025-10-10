@@ -135,6 +135,7 @@
     letter-spacing: 0.14em;
     position: absolute;
     bottom: 12dvh;
+    left: 0;
     width: 100%;
 }
 @media screen and (max-width: 1280px) {
